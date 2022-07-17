@@ -10,11 +10,10 @@ Route to about
 
 SearchForm Component
 -use state, link?
-
-handle submit, handle event, 
+input on change, event, handle onchange/handlesubmit
 - A user enters their address or zipcode, 
-- use Google Maps API to get coordinates of that place
 - Use those coordinates to get data from the Refuge API
+- export handlesubmit, handlechange, searchstringstate as props?
 
 SearchResults Component
 use state, useeffect, useParams
