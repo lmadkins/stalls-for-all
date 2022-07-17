@@ -1,11 +1,12 @@
 import React from 'react';
 import { useState } from 'react';
+import ResultCard from '../components/ResultCard';
 
-const ResultsPage = ({resultsState}) => {
+const ResultsPage = ({results}) => {
   return (
     <div>
       <h2>Results Page</h2>
-      {resultsState}
+      <ResultCard results={results}/>
     </div>
   );
 };

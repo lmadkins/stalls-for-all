@@ -1,9 +1,7 @@
 import React from 'react';
 import { useState } from 'react'
 
-const SearchForm = ({handleSubmit, handleChange, searchStringState, setSearchStringState}) => {
-
-
+const SearchForm = ({handleSubmit, handleChange, searchStringState, setSearchStringState, testData}) => {
 
   return (
     <div>
