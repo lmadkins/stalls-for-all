@@ -41,15 +41,15 @@ useEffect(() => {
 
   const handleChange = (event) => {
       // console.log(event.target.value)
-    // setSearchStringState(event.target.value)
+    setSearchStringState(event.target.value)
     setSearchStringState(testData)
   }
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    // console.log(searchStringState)
+    console.log(searchStringState)
     // ^ is what typed into form 
-    getResults(searchStringState)
+    // getResults(searchStringState)
   }
 
 
@@ -59,7 +59,9 @@ useEffect(() => {
       </header>
       <main>
         <SearchPage />
-        <ResultsPage results={results}/>
+        <ResultsPage 
+        results={results}
+        data={data}/>
       </main>
     </div>
   );
