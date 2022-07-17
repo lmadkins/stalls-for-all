@@ -23,11 +23,11 @@
 .searchContainer {
   padding: 50px;
   text-align: center;
-  background-color: rgb(146, 195, 234);
+  /* background-color: rgb(146, 195, 234); */
 }
 
 .searchForm {
-  background-color: aquamarine;
+  /* background-color: aquamarine; */
 }
 
 @media only screen and (min-width: 768px){
