@@ -1,15 +1,15 @@
 import React from 'react';
-import { useState } from 'react';
+// import { useState } from 'react';
 import ResultCard from '../components/ResultCard';
 
-const ResultsPage = ({results, data}) => {
+const ResultsPage = ({ data, results, lastSearch }) => {
   return (
     <div>
-      <h2>Results Page</h2>
+      <h2>Results for: {lastSearch}</h2>
       <ResultCard 
+      data={data}
       results={results}
-      data={data}/>
-      
+      />
     </div>
   );
 };

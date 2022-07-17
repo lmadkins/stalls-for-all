@@ -1,30 +1,28 @@
 import React from 'react';
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
-const SearchForm = ({handleSubmit, handleChange, searchStringState, setSearchStringState, testData}) => {
+const SearchForm = ({ handleSubmit, handleChange, searchStringState, setSearchStringState, testData }) => {
 
   return (
-    <div>
-      <form
-        onSubmit={handleSubmit}
-        >
-      <label
-        htmlFor='searchStringInput'></label>
+    <div className='searchForm'>
+      <form onSubmit={handleSubmit}>
+
+      <label htmlFor='searchStringInput'>
+        Enter street address or zip code:</label>
+        <br />
       <input
         type='text'
         name='searchInput'
         id='searchStringInput'
         onChange={handleChange}
-        // value={this.searchStringState}
-        required
-        >
+        // value={ this.searchStringState }
+        required>
       </input>
-      <button
 
-        type='submit'>Search</button>
+      <button type='submit'>Search</button>
+
       </form>
     </div>
-
   );
 };
 

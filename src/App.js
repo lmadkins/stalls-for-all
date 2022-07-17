@@ -11,60 +11,51 @@ import SearchForm from './components/SearchForm';
 import SearchPage from './pages/SearchPage';
 // import SearchPage from './pages/SearchPage';
 
-
-function App() {
-  const [results, setResults] = useState([])
-  const [searchStringState, setSearchStringState] = useState('')
-const [lastSearch, setLastSearch] = useState('')
-
+// what I was using as test parameters to make a requestto the api (see const url)
 const testData = {
   testLat: '45.5229783',
   testLong: '-122.6811032'
 }
-const url= `https://www.refugerestrooms.org/api/v1/restrooms/by_location?page=1&per_page=10&offset=0&lat=${testData.testLat}&lng=${testData.testLong}`
 
-useEffect(() => {
-  getResults(searchStringState)
-}, [])
+function App() {
+  const [results, setResults] = useState([])
+  const [lastSearch, setLastSearch] = useState('')
+  const [searchStringState, setSearchStringState] = useState('')
+
+  useEffect(() => {
+    getResults(searchStringState)
+  }, [])
+
+  // see above, const testData
+  const url= `https://www.refugerestrooms.org/api/v1/restrooms/by_location?page=1&per_page=10&offset=0&lat=${testData.testLat}&lng=${testData.testLong}`
 
   const getResults = (url) => {
     fetch(url)
     .then(response => response.json())
     .then(response => {
       setResults(response.data);
-      // console.log(response.data.name)
+      console.log(response.data.name)
     })
     .catch(console.error);
-    console.log('running getResults')
-   
   }
-
-  const handleChange = (event) => {
-      // console.log(event.target.value)
-    setSearchStringState(event.target.value)
-    setSearchStringState(testData)
-  }
-
-  const handleSubmit = (event) => {
-    event.preventDefault()
-    console.log(searchStringState)
-    // ^ is what typed into form 
-    // getResults(searchStringState)
-  }
-
 
   return (
     <div>
       <header>
       </header>
       <main>
-        <SearchPage />
+        <SearchPage 
+        // handleChange={handleChange}
+        // handleSubmit={handleSubmit}
+          searchString={searchStringState} />
         <ResultsPage 
-        results={results}
-        data={data}/>
+          lastSearch={lastSearch}
+          results={results}
+          data={data}
+        />
       </main>
     </div>
   );
-}
 
+}
 export default App;
