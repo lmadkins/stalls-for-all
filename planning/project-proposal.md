@@ -3,6 +3,7 @@ Open source public restroom lookup for Portland area
 
 ## Link to the API you plan to use
 https://www.refugerestrooms.org/api/docs/#!/restrooms 
+
 & to receive lat & long coordinates for it:
 https://developers.google.com/maps/documentation/javascript/geocoding
 

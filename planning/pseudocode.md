@@ -20,8 +20,9 @@ use state, useeffect, useParams
 - Cards are mapped for each location in the results, with the name, address, and its stats true/false/unknown (green, red, yellow?)
 - also if locaiton matches one of locations of codes from data.json, show htat? 
 
-
-
+Loading 
+if loading is true, return ainimation
+if loading is false
 
 About?
 Brief about this, believe in safe inclusive access, etc. 
