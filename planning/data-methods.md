@@ -28,7 +28,17 @@ function DetermineUnisex({data}) {
     })
     // ^ currently not working
 
-
+const directionsUrl = (({results}) => {
+  let newUrl =`https://www.google.com/maps/@${results.latitude},${results.longitude}14z`
+  console.log(newUrl)
+  return newUrl
+  })
+  <a href={newUrl}
+      // see data-methods for {newUrl}
+        target='_blank'
+        rel="noreferrer">Get Directions
+      </a>
+      
 
 /////////
 Make a shortened version of data.distance so it only displays as, for example, 0.013, instead of 0.013506731393940041
