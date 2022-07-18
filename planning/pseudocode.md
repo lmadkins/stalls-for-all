@@ -7,6 +7,7 @@ Routes:
 Route to search?
 Route to results
 Route to about
+(External) link to Refuge API to add a listing
 
 SearchForm Component
 -use state, link?
@@ -20,19 +21,59 @@ use state, useeffect, useParams
 - Cards are mapped for each location in the results, with the name, address, and its stats true/false/unknown (green, red, yellow?)
 - also if locaiton matches one of locations of codes from data.json, show htat? 
 
-
+//////////////////////////////////
+https://www.refugerestrooms.org/api/v1/restrooms/by_location?page=1&per_page=5&offset=0&lat=45.5229783&lng=-122.6811032
 Getting both Lat and Long params into the url query
 maybe use on submit method, take lat, long, split based on ',' 
 - and set query1 query2?
 - or use state w/ SearchString? and do a 1 and 2?
 
+https://www.refugerestrooms.org/api/v1/restrooms/by_location?page=1&per_page=5&offset=0&lat=${lat}&lng=${lng}
+
+45.5229783,-122.6811032
+build a new query string that takes coordinates, e.g.
+45.5229783, -122.6811032
+and 
+substring?
+string.replace()?
+replace ',' or ', '
+with '&lng='
+then 
+assign variable
+enter coordinates, 
+that search string (event.target.value- assign to a var first?) do replace method, replace ',' or ', '
+with '&lng='
+then setSearchString!
+^ DIDN'T WORK
+{error: 'lng is missing'}
+GET https://www.refugerestrooms.org/api/v1/restrooms/by_location?page=1&per_page=5&offset=0&lat= 400 (Bad Request)
 
 
 
+////////////////////////
+GEOCODING
+GEOAPIFY_KEY
+declare searchOptions in app.js
+key: process.env.GEOAPIFY_KEY
 
+in app function, 
+set state of locationDetails, setLocationDetails
 
+take searchString from Search.js
+write function getCoords(searchString) {
+  (searchString is what's entered into input) 
+  const url 
+  interpolate api url plus parameters 
+}
+fetch url underneath
+then setLocationDetails(response data)
+
+either extract lat and long from object, and pass as props, or pass location details as props? (in case needed more info about it?)
+pass it as props locationDetails = {locationDetails} to component where fetch to Refuge is
+
+////////////////////////
 Loading 
-if loading is true, return ainimation
+if loading is true, return animation
 if loading is false
 
 About?

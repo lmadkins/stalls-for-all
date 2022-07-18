@@ -10,14 +10,11 @@ const Search = ({setSearchParams}) => {
 
   const handleChange = (event) => {
     setSearchString(event.target.value)
-        // console.log(event.target.id)
-    // console.log(event.target.value)
-    // setFormState({...formState, [event.target.id]: event.target.value})
+    console.log(event.target.value)
   }
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    // console.log(searchString)
     // navigate('/results' + '?query=$' + {searchString})
     setSearchParams(searchString)
     navigate(`/results?query=${searchString}`)
@@ -39,7 +36,6 @@ const Search = ({setSearchParams}) => {
         name='searchString'
         id='searchStringInput'
         onChange={handleChange}
-        // value={ this.searchStringState }
         required>
       </input>
 
