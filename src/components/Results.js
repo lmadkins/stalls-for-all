@@ -13,9 +13,9 @@ const Results = ({searchParams}) => {
   // https://www.refugerestrooms.org/api/v1/restrooms/search?page=1&per_page=10&offset=0&query=portland
 
   useEffect(() => {
-    const url = `https://www.refugerestrooms.org/api/v1/restrooms/search?page=1&per_page=10&offset=0&query=${requestedSearch}`
-
-
+    // const url = `https://www.refugerestrooms.org/api/v1/restrooms/search?page=1&per_page=10&offset=0&query=${requestedSearch}`
+    const url = `https://www.refugerestrooms.org/api/v1/restrooms/by_location?page=1&per_page=5&offset=0&lat=45.5229783&lng=${requestedSearch}`
+    
   fetch(url)
     .then((res) => {
       if (res.status === 404) {

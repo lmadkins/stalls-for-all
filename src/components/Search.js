@@ -7,6 +7,7 @@ const Search = ({setSearchParams}) => {
   let navigate = useNavigate()
 
   const [searchString, setSearchString] = useState('')
+
   const handleChange = (event) => {
     setSearchString(event.target.value)
         // console.log(event.target.id)

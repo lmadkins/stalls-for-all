@@ -20,6 +20,17 @@ use state, useeffect, useParams
 - Cards are mapped for each location in the results, with the name, address, and its stats true/false/unknown (green, red, yellow?)
 - also if locaiton matches one of locations of codes from data.json, show htat? 
 
+
+Getting both Lat and Long params into the url query
+maybe use on submit method, take lat, long, split based on ',' 
+- and set query1 query2?
+- or use state w/ SearchString? and do a 1 and 2?
+
+
+
+
+
+
 Loading 
 if loading is true, return ainimation
 if loading is false
@@ -40,5 +51,4 @@ https://react-bootstrap.github.io/components/progress/
 pages will have their own state usually
 pages versus components
 
-hardcoded lat/long 
 
