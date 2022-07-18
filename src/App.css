@@ -1,13 +1,13 @@
-/* @import 'bootstrap/dist/css/bootstrap.min.css'; */
+/* body {
+  text-align: center;
+} */
 
-.listingContainer {
+.resultsContainer {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   margin: 0 auto;
-  /* width: 400px; */
 }
-
-.listing, .searchContainer {
+.resultCard, .searchContainer {
   border: 2px solid lightgray;
   margin: 10px;
   padding: 10px;
@@ -16,7 +16,7 @@
   border-radius: 5px;
 }
 
-.listing:hover,  .searchContainer:hover {
+.resultCard: hover, .searchContainer:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
@@ -31,7 +31,7 @@
 }
 
 @media only screen and (min-width: 768px){
-  .listingContainer {
+  .resultsContainer {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     /* width: 400px; */
