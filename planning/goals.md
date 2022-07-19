@@ -1,5 +1,5 @@
 ## User Stories
-- I want to be able to quickly enter my location within Portland and look up public restroom options near me, sorted by nearest options
+- I want to be able to quickly enter my location and look up public restroom options near me, sorted by nearest options
 - I want to know whether it meets certain criteria (All-Gender, ADA accessible, has changing tables)
 - I want to know how to get there
 - I want to know what type of establishment it is, its location, and whether it is open
@@ -7,13 +7,15 @@
 
 
 ### MVP Goals
-- A user enters their address or zipcode, gets results nearby (Input goes to the Google Maps API, which returns coordinates, which are then used to get data from the Refuge API)
+- A user enters their address or zipcode, gets results nearby (Input goes to a maps API, which returns coordinates, which are then used to get data from the Refuge API)
 - Results listings sorted by nearest options, and show any critical information available (name of building, address, unisex, accessible, changing table) 
 - Show link to google maps to take user to directions to the place
 - Mobile-first, responsive, minimalistic design
 - Uses accesibility practices, gender-inclusive language
 
 ### Stretch Goals
+- autocomplete API to get geocoding to be as precise as possible
+- (or IP locator)
 - Get information from Google Maps Places API about whether the place is open or not 
 - Filter results by ADA/Gender Neutral/Changing tables true/false
 - Show distance information (anpmdditional google maps API)

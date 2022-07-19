@@ -2,7 +2,7 @@ import React from 'react';
 
 const ResultsCard = ({ listings }) => {
   return (
-    <div>
+    <div className='resultsContainer'>
       {listings}
     </div>
   );

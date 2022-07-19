@@ -68,8 +68,28 @@ write function getCoords(searchString) {
 fetch url underneath
 then setLocationDetails(response data)
 
-either extract lat and long from object, and pass as props, or pass location details as props? (in case needed more info about it?)
-pass it as props locationDetails = {locationDetails} to component where fetch to Refuge is
+either extract lat and long from object, set as variables 
+
+declare
+const refugeUrl = `https://www.refugerestrooms.org/api/v1/restrooms/by_location?page=1&per_page=5&offset=0&lat=${lat}&lng=${lng}`
+
+fetch from refugeUrl
+fetch(refugeUrl)
+    .then((res) => {
+      if (res.status === 404) {
+        return setError(true)
+      }
+      return res.json()
+    })
+    .then((data) => {
+      console.log(data)
+      // setResults(data)
+    })
+    .catch((err) => {
+      console.log(err)
+    })
+
+
 
 ////////////////////////
 Loading 

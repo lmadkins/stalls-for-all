@@ -4,48 +4,69 @@ import { Link } from 'react-router-dom';
 import ResultsCard from './ResultsCard';
 
 const Results = ({searchParams}) => {
+
   const requestedSearch = searchParams.get('query')
-  const [results, setResults] = useState()
+
+  const [results, setResults] = useState('')
   const [error, setError] = useState(false)
+  const [locationDetails, setLocationDetails] = useState('')
 
-// const url ='https://www.refugerestrooms.org/api/v1/restrooms/by_location?page=1&per_page=10&offset=0&lat=45.5229783&lng=-122.6811032'
-
-  // https://www.refugerestrooms.org/api/v1/restrooms/search?page=1&per_page=10&offset=0&query=portland
+  const searchOptions = {
+    key: process.env.GEOAPIFY_KEY,
+    api: 'https://api.geoapify.com/v1/geocode',
+    endpoint: '/search'
+  }
 
   useEffect(() => {
-    // const url = `https://www.refugerestrooms.org/api/v1/restrooms/search?page=1&per_page=10&offset=0&query=${requestedSearch}`
-    const url = `https://www.refugerestrooms.org/api/v1/restrooms/by_location?page=1&per_page=5&offset=0&lat=45.5229783&lng=${requestedSearch}`
-    // const url = `https://www.refugerestrooms.org/api/v1/restrooms/by_location?page=1&per_page=5&offset=0&lat=${requestedSearch}`
-    
-  fetch(url)
-    .then((res) => {
-      if (res.status === 404) {
-        return setError(true)
-      }
-      return res.json()
-    })
-    .then((data) => {
-      setResults(data)
-      console.log(data)
-    })
-    .catch((err) => {
-      console.log(err)
-    })
+
+    // search input (requestedSearch) goes to geocoder 
+    const geoapifyUrl = `https://api.geoapify.com/v1/geocode/search?text=${requestedSearch}}&format=json&apiKey=ffac76c40aed404e8307bf7271367b1b`
+
+    fetch(geoapifyUrl)
+      .then((res) => {
+        if (res.status === 404) {
+          return setError(true)
+        }
+        return res.json()
+      })
+      .then((data) => {
+        // get latitude and longitude properties from the location the geocoder identified
+        let lat = data.results[0].lat
+        let lng = data.results[0].lon 
+
+        // plug those into the url
+        const refugeUrl = `https://www.refugerestrooms.org/api/v1/restrooms/by_location?page=1&per_page=5&offset=0&lat=${lat}&lng=${lng}`
+
+        fetch(refugeUrl)
+        .then((res) => {
+          if (res.status === 404) {
+            return setError(true)
+          }
+          return res.json()
+        })
+        .then((data) => {
+          // returned data with that lat & long is added to results state
+          setResults(data)
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+      })
+      .catch((err) => {
+        console.log(err)
+      })
 }, [])
 
-  if (error) {
+  if (error || !results) {
     return (
       <div>
         <p>No results were found for {requestedSearch}
-        Click <Link to=''>here</Link> to go back a different search</p>
+        Click <Link to='/'>here</Link> to go back a different search</p>
       </div>
     )
   }
 
-  if (!results) {
-    return null
-  }
-
+  //map out results to render each individual one
   let listings = results.map((element, index) => (
     <div
     key={element.name} 
@@ -57,12 +78,12 @@ const Results = ({searchParams}) => {
   ))
 
   return (
-    <div className='resultsContainer'>
-      <h2>Showing results for {requestedSearch}:</h2>
+    <div className='resultsPage'>
+      <h2>Showing results for: {requestedSearch}</h2>
 
       <ResultsCard 
         listings={listings}
-        requestedSearch={requestedSearch} />
+      />
     </div>
   );
 };
