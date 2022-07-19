@@ -54,6 +54,8 @@ Make a shortened version of data.distance so it only displays as, for example, 0
 
 {Math.round({element.distance} * 100) / 100}
 
+{Math.round((element.distance) * 100) / 100}
+
  // ^ currently not working
 
  const testFunct = () => {

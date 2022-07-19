@@ -113,3 +113,29 @@ pages will have their own state usually
 pages versus components
 
 
+
+
+- loading page as own component
+
+{!results && (
+  <div className='loading'>
+    Loading
+    <Spinner animation="border" role="status">
+      <br></br>
+      <span className="visually-hidden">Loading...</span>
+    </Spinner>
+    </div>
+)
+}
+
+move things to results card
+
+{results && (
+    <ResultsCard 
+        listings={listings}
+      />
+)}
+
+result card
+
+{elmement}

@@ -4,10 +4,6 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import ResultsCard from './ResultsCard';
 
-// const roundDistance = (num) => {
-//   return Math.round(num * 100) / 100
-// }
-
 const Results = ({searchParams}) => {
 
   const requestedSearch = searchParams.get('query')
@@ -16,16 +12,13 @@ const Results = ({searchParams}) => {
   const [error, setError] = useState(false)
   const [locationDetails, setLocationDetails] = useState('')
 
-  const searchOptions = {
-    key: process.env.GEOAPIFY_KEY,
-    api: 'https://api.geoapify.com/v1/geocode',
-    endpoint: '/search'
-  }
 
   useEffect(() => {
 
+    const apiKey = process.env.REACT_APP_GEOAPIFY_KEY
+
     // search input (requestedSearch) goes to geocoder 
-    const geoapifyUrl = `https://api.geoapify.com/v1/geocode/search?text=${requestedSearch}}&format=json&apiKey=ffac76c40aed404e8307bf7271367b1b`
+    const geoapifyUrl = `https://api.geoapify.com/v1/geocode/search?text=${requestedSearch}&format=json&apiKey=${apiKey}`
 
     fetch(geoapifyUrl)
       .then((res) => {
@@ -84,22 +77,27 @@ if (!results) {
   }
 
   //map out results to render each individual one
-  let listings = results.map((element, index) => (
-  
+  let listings = results.map((element, index, roundDistance) => {
+  return (
     <div
-    key={element.name} 
-    className='resultCard'>
+      key={element.name} 
+      className='resultCard'>
 
-    <p>{element.distance}</p>
-    <h3>{element.name}</h3>
-    <h4>{element.street} </h4>  
-    <a 
+      <span>{Math.round((element.distance) * 100) / 100} miles away
+      <br></br>
+      <a 
         href={`https://www.google.com/maps/@${element.latitude},${element.longitude}14z`}
         target='_blank'
-        rel="noreferrer">Get Directions
+        rel="noreferrer">
+        Get Directions
       </a> 
+      </span>
+      <h3>{element.name}</h3>
+      <h4>{element.street} </h4>  
+      
     </div>
-  ))
+  ) 
+  })
 
 
   return (
