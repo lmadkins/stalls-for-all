@@ -24,5 +24,5 @@
 - Functionality for users to submit a code to be added to a location 
 - Automatically detect nearby locations by user's location, without manually entering it
 - Feature for user to manually submit a toilet location
-- Feature for users to post a note to a location, e.g. "closed for constructio", "always out of toilet paper"
+- Feature for users to post a note to a location, e.g. "closed for construction", "always out of toilet paper"
 https://developers.google.com/maps/documentation/distance-matrix
