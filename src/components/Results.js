@@ -47,7 +47,7 @@ const Results = ({searchParams}) => {
         })
         .then((data) => {
           // returned data with that lat & long is added to results state
-          setResults(data)
+          setResults(data)  
         })
         .catch((err) => {
           console.log(err)
@@ -63,12 +63,11 @@ if (!results) {
     <div className='loading'>
     Loading
     <Spinner animation="border" role="status">
+      <br></br>
       <span className="visually-hidden">Loading...</span>
     </Spinner>
     </div>
   )
-    
-  
 }
 
   if (error) {
@@ -82,14 +81,22 @@ if (!results) {
 
   //map out results to render each individual one
   let listings = results.map((element, index) => (
+   
     <div
     key={element.name} 
     className='resultCard'>
-    
+     
+    <p>{element.distance}</p>
     <h3>{element.name}</h3>
-    <h4>{element.street} </h4>   
+    <h4>{element.street} </h4>  
+    <a 
+        href={`https://www.google.com/maps/@${element.latitude},${element.longitude}14z`}
+        target='_blank'
+        rel="noreferrer">Get Directions
+      </a> 
     </div>
   ))
+
 
   return (
     <div className='resultsPage'>

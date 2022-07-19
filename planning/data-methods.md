@@ -21,6 +21,15 @@ function DetermineUnisex({data}) {
  //////////
  Make a customized link for each listing, using the latitude and longitude for it and inserting those into the url
 
+  const directionsUrl = (({results}) => {
+    // let locLat = data.latitude
+    // let locLong = data.longitude
+    // let newUrl =`https://www.google.com/maps/@${results.latitude},${results.longitude}14z`
+    // console.log(newUrl)
+    // return newUrl
+    console.log(results)
+    })
+
   const directionsUrl = (({data}) => {
     let newUrl =`https://www.google.com/maps/@${data.latitude},${data.longitude}14z`
     console.log(newUrl)
@@ -43,11 +52,11 @@ const directionsUrl = (({results}) => {
 /////////
 Make a shortened version of data.distance so it only displays as, for example, 0.013, instead of 0.013506731393940041
 
-  // const shortDistance = (({data}) => {
-  //   let num = data.distance
-  //   let distanceString = num.toString()
-  //   let shortString = distanceString.slice(0, 3)
-  //   console.log(shortString)
-  //   return shortString
-  // })
+Math.round({element.distance} * 100)/100
+
  // ^ currently not working
+
+ const testFunct = () => {
+  let num = 'abc'
+  console.log(num)
+ }
