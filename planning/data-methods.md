@@ -52,7 +52,7 @@ const directionsUrl = (({results}) => {
 /////////
 Make a shortened version of data.distance so it only displays as, for example, 0.013, instead of 0.013506731393940041
 
-Math.round({element.distance} * 100)/100
+{Math.round({element.distance} * 100) / 100}
 
  // ^ currently not working
 

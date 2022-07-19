@@ -4,6 +4,10 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import ResultsCard from './ResultsCard';
 
+// const roundDistance = (num) => {
+//   return Math.round(num * 100) / 100
+// }
+
 const Results = ({searchParams}) => {
 
   const requestedSearch = searchParams.get('query')
@@ -81,11 +85,11 @@ if (!results) {
 
   //map out results to render each individual one
   let listings = results.map((element, index) => (
-   
+  
     <div
     key={element.name} 
     className='resultCard'>
-     
+
     <p>{element.distance}</p>
     <h3>{element.name}</h3>
     <h4>{element.street} </h4>  
