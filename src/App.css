@@ -1,38 +1,64 @@
 @import 'bootstrap/dist/css/bootstrap.min.css';
 
-.resultsContainer {
+.App {
   display: grid;
-  grid-template-columns: repeat(1, 1fr);
+  /* grid-template-rows: 10vw 1fr 1fr 1fr 10vw;
+  grid-template-columns: 10vh 1fr 10vh; */
+  grid-template-columns: repeat (5, 1fr);
+  grid-template-rows: repeat (5 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
   margin: 0 auto;
+  /* background-color: pink; */
+}
+
+header {
+  /* grid-column-start: 1;
+  grid-column-end: 5; */
+  /* background: blueviolet; */
+  height: 10vh;
+  text-align: center;
+  text-decoration: none;
+}
+.resultsPage, .resultsContainer {
+  /* grid-template-columns: repeat(1, 1fr); */
+  margin: 0 auto;
+  text-align: center;
+  
 }
 .resultCard, .searchContainer {
   border: 2px solid lightgray;
-  margin: 10px;
   padding: 10px;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
   border-radius: 5px;
   max-width: 400px;
+  /* margin-left: 20%;
+  margin-right: 20%; */
+  margin: 10px 20%;
 }
 
 .resultCard:hover, .searchContainer:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
-.searchContainer {
-  padding: 50px;
+.searchContainer, .loading {
+  /* grid-area: 2 / 2 / 6 / 5; */
   text-align: center;
+  margin: 0 auto;
   /* background-color: rgb(146, 195, 234); */
 }
 
 .searchForm {
-  /* background-color: aquamarine; */
+  padding: 20px;
 }
 
 @media only screen and (min-width: 768px){
   .resultsContainer {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(6, 1fr);
     /* width: 400px; */
+    margin: 10px;
   }
 }

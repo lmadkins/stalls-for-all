@@ -20,6 +20,10 @@ const SearchForm = ({setSearchParams}) => {
 
   return (
     <div className='searchForm'>
+      <img
+      src='https://placeholder.pics/svg/300'
+      alt=''></img>
+      
       <form onSubmit={handleSubmit}>
 
       <label htmlFor='searchStringInput'>

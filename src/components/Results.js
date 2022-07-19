@@ -36,7 +36,7 @@ const Results = ({searchParams}) => {
         let lng = data.results[0].lon 
 
         // plug those into the url
-        const refugeUrl = `https://www.refugerestrooms.org/api/v1/restrooms/by_location?page=1&per_page=5&offset=0&lat=${lat}&lng=${lng}`
+        const refugeUrl = `https://www.refugerestrooms.org/api/v1/restrooms/by_location?page=1&per_page=10&offset=0&lat=${lat}&lng=${lng}`
 
         fetch(refugeUrl)
         .then((res) => {
@@ -60,12 +60,12 @@ const Results = ({searchParams}) => {
 
 if (!results) {
   return (
-    <>
+    <div className='loading'>
     Loading
     <Spinner animation="border" role="status">
       <span className="visually-hidden">Loading...</span>
     </Spinner>
-    </>
+    </div>
   )
     
   

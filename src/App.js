@@ -9,9 +9,11 @@ function App() {
   return (
     <div className="App">
       <header>
-        <h1>
-          <Link to='/'>Stalls for All</Link>
-        </h1>
+          <Link to='/'>
+            <h1>
+              Stalls for All
+            </h1>
+          </Link>
       </header>
       <main>
         <Routes>
