@@ -1,4 +1,5 @@
 import React from 'react';
+import Spinner from 'react-bootstrap/Spinner';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import ResultsCard from './ResultsCard';
@@ -57,7 +58,20 @@ const Results = ({searchParams}) => {
       })
 }, [])
 
-  if (error || !results) {
+if (!results) {
+  return (
+    <>
+    Loading
+    <Spinner animation="border" role="status">
+      <span className="visually-hidden">Loading...</span>
+    </Spinner>
+    </>
+  )
+    
+  
+}
+
+  if (error) {
     return (
       <div>
         <p>No results were found for {requestedSearch}

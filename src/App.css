@@ -1,6 +1,4 @@
-body {
-  text-align: center;
-}
+@import 'bootstrap/dist/css/bootstrap.min.css';
 
 .resultsContainer {
   display: grid;

@@ -1,4 +1,5 @@
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link, Route, Routes, useSearchParams }  from 'react-router-dom';
 import Results from './components/Results';
 import Search from './components/Search';
