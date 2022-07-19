@@ -20,6 +20,12 @@ const SearchForm = ({setSearchParams}) => {
 
   return (
     <div className='searchForm'>
+      <img
+      src='https://placeholder.pics/svg/300'
+      alt=''/>
+      <img 
+      src='./inclusive-symbols-sign.png'/>
+      
       <form onSubmit={handleSubmit}>
 
       <label htmlFor='searchStringInput'>

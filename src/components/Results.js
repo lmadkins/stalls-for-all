@@ -1,7 +1,12 @@
 import React from 'react';
+import Spinner from 'react-bootstrap/Spinner';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import ResultsCard from './ResultsCard';
+
+// const roundDistance = (num) => {
+//   return Math.round(num * 100) / 100
+// }
 
 const Results = ({searchParams}) => {
 
@@ -35,7 +40,7 @@ const Results = ({searchParams}) => {
         let lng = data.results[0].lon 
 
         // plug those into the url
-        const refugeUrl = `https://www.refugerestrooms.org/api/v1/restrooms/by_location?page=1&per_page=5&offset=0&lat=${lat}&lng=${lng}`
+        const refugeUrl = `https://www.refugerestrooms.org/api/v1/restrooms/by_location?page=1&per_page=10&offset=0&lat=${lat}&lng=${lng}`
 
         fetch(refugeUrl)
         .then((res) => {
@@ -46,7 +51,7 @@ const Results = ({searchParams}) => {
         })
         .then((data) => {
           // returned data with that lat & long is added to results state
-          setResults(data)
+          setResults(data)  
         })
         .catch((err) => {
           console.log(err)
@@ -57,7 +62,19 @@ const Results = ({searchParams}) => {
       })
 }, [])
 
-  if (error || !results) {
+if (!results) {
+  return (
+    <div className='loading'>
+    Loading
+    <Spinner animation="border" role="status">
+      <br></br>
+      <span className="visually-hidden">Loading...</span>
+    </Spinner>
+    </div>
+  )
+}
+
+  if (error) {
     return (
       <div>
         <p>No results were found for {requestedSearch}
@@ -68,14 +85,22 @@ const Results = ({searchParams}) => {
 
   //map out results to render each individual one
   let listings = results.map((element, index) => (
+  
     <div
     key={element.name} 
     className='resultCard'>
-    
+
+    <p>{element.distance}</p>
     <h3>{element.name}</h3>
-    <h4>{element.street} </h4>   
+    <h4>{element.street} </h4>  
+    <a 
+        href={`https://www.google.com/maps/@${element.latitude},${element.longitude}14z`}
+        target='_blank'
+        rel="noreferrer">Get Directions
+      </a> 
     </div>
   ))
+
 
   return (
     <div className='resultsPage'>

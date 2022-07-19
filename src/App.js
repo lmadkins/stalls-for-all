@@ -1,4 +1,5 @@
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link, Route, Routes, useSearchParams }  from 'react-router-dom';
 import Results from './components/Results';
 import Search from './components/Search';
@@ -8,9 +9,11 @@ function App() {
   return (
     <div className="App">
       <header>
-        <h1>
-          <Link to='/'>Stalls for All</Link>
-        </h1>
+          <Link to='/'>
+            <h1>
+              Stalls for All
+            </h1>
+          </Link>
       </header>
       <main>
         <Routes>
