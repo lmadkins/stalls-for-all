@@ -1,17 +1,15 @@
 import './App.css';
 import { Link, Route, Routes, useSearchParams }  from 'react-router-dom';
-import Search from './components/Search';
 import Results from './components/Results';
+import Search from './components/Search';
 
 function App() {
-
   let [searchParams, setSearchParams] = useSearchParams()
   return (
-
     <div className="App">
       <header>
         <h1>
-          <Link to='/'>Stall</Link>
+          <Link to='/'>Stalls for All</Link>
         </h1>
       </header>
       <main>
