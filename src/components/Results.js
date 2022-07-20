@@ -3,6 +3,7 @@ import Spinner from 'react-bootstrap/Spinner';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import ResultsCard from './ResultsCard';
+import Badge from 'react-bootstrap/Badge';
 
 const Results = ({searchParams}) => {
 
@@ -53,7 +54,7 @@ const Results = ({searchParams}) => {
       .catch((err) => {
         console.log(err)
       })
-}, [])
+}, [requestedSearch])
 
 if (!results) {
   return (
@@ -76,39 +77,18 @@ if (!results) {
     )
   }
 
-  //map out results to render each individual one
-  let listings = results.map((element, index, roundDistance) => {
-  return (
-    <div
-      key={element.name} 
-      className='resultCard'>
-
-      <span>{Math.round((element.distance) * 100) / 100} miles away
-      <br></br>
-      <a 
-        href={`https://www.google.com/maps/@${element.latitude},${element.longitude}14z`}
-        target='_blank'
-        rel="noreferrer">
-        Get Directions
-      </a> 
-      </span>
-      <h3>{element.name}</h3>
-      <h4>{element.street} </h4>  
-      
+  console.log(results)
+  return ( 
+  <div className='resultsPage'>
+    <h3>Showing results for: {requestedSearch}</h3>
+    <div className='resultsContainer'>
+      {results.map((element, index) => (
+        <ResultsCard element={element}/>
+      ))
+      }
     </div>
-  ) 
-  })
-
-
-  return (
-    <div className='resultsPage'>
-      <h2>Showing results for: {requestedSearch}</h2>
-
-      <ResultsCard 
-        listings={listings}
-      />
-    </div>
-  );
+  </div>
+  )   
 };
 
 export default Results;

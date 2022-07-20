@@ -16,6 +16,12 @@ function DetermineUnisex({data}) {
   }
 }
 
+    if (element.accessible === true) {
+      <>Accessible</>
+    }
+
+    
+
 
 
  //////////
