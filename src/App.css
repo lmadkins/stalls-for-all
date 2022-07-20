@@ -29,7 +29,7 @@ header {
   /* margin-left: 20%;
   margin-right: 20%; */
   margin: 20px 20%;
-  background-color: dimgray;
+  /* background-color: dimgray; */
   text-align: center;
   margin: 0 auto;
 }
@@ -68,7 +68,18 @@ header {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
-
+.aboutContainer {
+  border: 2px solid lightgray;
+  padding: 100px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  border-radius: 5px;
+  max-width: 500px;
+  margin: 20px 20%;
+  /* background-color: dimgray; */
+  text-align: center;
+  margin: 0 auto;
+}
 
 .loading {
   /* grid-area: 2 / 2 / 6 / 5; */
@@ -76,8 +87,6 @@ header {
   margin: 0 auto;
   /* background-color: rgb(146, 195, 234); */
 }
-
-
 
 /* BADGES */
 .badge {

@@ -1,6 +1,22 @@
-Pokemon search lesson
-react-stocks
+Filtering results
+function similar to handleChange/handle submit?
+e.g. 
+and set state showUnisex, setShowUnisex = useState('true')
+setShowUnisex(true)
+showADA, setShowADA = useState('true')
+setShowADA(true)
+showChangingTables, showChangingTables = useState('true')
+setShowUnisex(true)
 
+unisexFormFilter
+adaFormFilter
+changingTablesFormFilter
+//////////////////////////////////
+Header/Nav
+Route to about
+(External) link to Refuge API to add a listing
+
+//////////////////////////////////
 Main App Component:
 Navigation with link to about
 Routes:
@@ -9,6 +25,7 @@ Route to results
 Route to about
 (External) link to Refuge API to add a listing
 
+//////////////////////////////////
 SearchForm Component
 -use state, link?
 input on change, event, handle onchange/handlesubmit

@@ -1,6 +1,8 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Link, Route, Routes, useSearchParams }  from 'react-router-dom';
+import { Route, Routes, useSearchParams }  from 'react-router-dom';
+import About from './components/About';
+import NavBar from './components/NavBar';
 import Results from './components/Results';
 import Search from './components/Search';
 
@@ -8,15 +10,20 @@ function App() {
   let [searchParams, setSearchParams] = useSearchParams()
   return (
     <div className="App">
-      <header>
-          <Link to='/'>
-            <h1>
-              Stalls for All
-            </h1>
-          </Link>
-      </header>
+      <NavBar />
+      <Routes>
+        {/* <Route
+          path='/'
+          element={<NavBar setSearchParams={setSearchParams}/>}
+          /> */}
+           <Route
+          path='/about'
+          element={<About setSearchParams={setSearchParams}/>}
+          />
+      </Routes>
       <main>
         <Routes>
+        <Route path='./components/a' element={<About />}/>
           <Route
             path='/'
             element={<Search setSearchParams={setSearchParams}/>}
@@ -26,7 +33,7 @@ function App() {
             element={<Results searchParams={searchParams}/>}
             />
         </Routes>
-      </main>
+        </main>
     </div>
   );
 }
