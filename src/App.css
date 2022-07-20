@@ -7,7 +7,7 @@
   grid-column-gap: 0px;
   grid-row-gap: 0px;
   margin: 0 auto;
-  background-color: pink;
+  /* background-color: pink; */
 }
 
 header {
@@ -28,16 +28,16 @@ header {
   max-width: 500px;
   /* margin-left: 20%;
   margin-right: 20%; */
-  margin: 20px 20%;
+  /* margin: 20px 20%; */
   /* background-color: dimgray; */
   text-align: center;
-  margin: 0 auto;
+  margin: 50px auto;
 }
 
 .searchForm {
   padding: 20px;
   text-align: left;
-  background-color: aquamarine;
+  /* background-color: aquamarine; */
 }
 
 
@@ -79,6 +79,10 @@ header {
   /* background-color: dimgray; */
   text-align: center;
   margin: 0 auto;
+}
+
+.aboutContainer a {
+  text-decoration: none;
 }
 
 .loading {
