@@ -2,31 +2,56 @@
 
 .App {
   display: grid;
-  /* grid-template-rows: 10vw 1fr 1fr 1fr 10vw;
-  grid-template-columns: 10vh 1fr 10vh; */
   grid-template-columns: repeat (5, 1fr);
   grid-template-rows: repeat (5 1fr);
   grid-column-gap: 0px;
   grid-row-gap: 0px;
   margin: 0 auto;
-  /* background-color: pink; */
+  background-color: pink;
 }
 
 header {
   /* grid-column-start: 1;
   grid-column-end: 5; */
-  /* background: blueviolet; */
+  background: blueviolet;
   height: 10vh;
   text-align: center;
   text-decoration: none;
 }
-.resultsPage, .resultsContainer {
+
+.searchContainer {
+  border: 2px solid lightgray;
+  padding: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  border-radius: 5px;
+  max-width: 500px;
+  /* margin-left: 20%;
+  margin-right: 20%; */
+  margin: 20px 20%;
+  background-color: dimgray;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.searchForm {
+  padding: 20px;
+  background-color: aquamarine;
+}
+
+
+.resultsPage {
   /* grid-template-columns: repeat(1, 1fr); */
   margin: 0 auto;
   text-align: center;
-  
 }
-.resultCard, .searchContainer {
+
+.resultsContainer {
+  /* grid-template-columns: repeat(1, 1fr); */
+  margin: 0 auto;
+  text-align: center;
+}
+.resultCard {
   border: 2px solid lightgray;
   padding: 10px;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
@@ -42,17 +67,18 @@ header {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
-.searchContainer, .loading {
+
+
+.loading {
   /* grid-area: 2 / 2 / 6 / 5; */
   text-align: center;
   margin: 0 auto;
   /* background-color: rgb(146, 195, 234); */
 }
 
-.searchForm {
-  padding: 20px;
-}
 
+
+/* BADGES */
 .badge {
   padding: 5px 9px;
   text-align: center;

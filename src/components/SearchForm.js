@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from "react";
 import {  useNavigate } from "react-router-dom";
 
+
 const SearchForm = ({setSearchParams}) => {
 
   let navigate = useNavigate()
@@ -20,11 +21,9 @@ const SearchForm = ({setSearchParams}) => {
 
   return (
     <div className='searchForm'>
-      <img
+      {/* <img
       src='https://placeholder.pics/svg/300'
-      alt=''/>
-      <img 
-      src='./inclusive-symbols-sign.png'/>
+      alt=''/> */}
       
       <form onSubmit={handleSubmit}>
 
