@@ -1,3 +1,86 @@
+Auto search form
+
+Click search to show locations near you
+Optional Filters
+Submit button
+
+handle change?
+submit? 
+
+results automatic
+useEffect
+
+in Search Form:
+Button- detect my location automatically
+onClick=handleAutoLocate
+
+  useEffect(() => {
+  
+    const apiKey2 = process.env.REACT_APP_ABSTRACT_KEY
+    // search input (requestedSearch) goes to geocoder 
+    const abstractUrl = `https://ipgeolocation.abstractapi.com/v1/?api_key=${apiKey2}`
+
+    fetch(abstractUrl)
+      .then((res) => {
+        if (res.status === 404) {
+          return setError(true)
+        }
+        return res.json()
+      })
+      .then((data) => {
+        // get latitude and longitude properties from the location the geocoder identified
+                let lat = data.latitude
+        let lng = data.longitude 
+        console.log(data.longitude)
+
+        // plug those into the url
+        const refugeUrl = `https://www.refugerestrooms.org/api/v1/restrooms/by_location?page=1&per_page=10&offset=0&lat=${lat}&lng=${lng}`
+
+        fetch(refugeUrl)
+        .then((res) => {
+          if (res.status === 404) {
+            return setError(true)
+          }
+          return res.json()
+        })
+        .then((data) => {
+          // returned data with that lat & long is added to results state
+          setResults(data)  
+          // setIsLoading(false)
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+}, [requestedSearch])
+
+const handleAutoLocate function 
+  useEffect
+
+in Results:
+
+local env key
+
+variable for local key
+variable for URL
+`https://ipgeolocation.abstractapi.com/v1/?api_key=${apiKey2}&ip_address=`
+
+    fetch(geoapifyUrl)
+      .then((res) => {
+        if (res.status === 404) {
+          return setError(true)
+        }
+        return res.json()
+      })
+      .then((data) => {
+
+      let lat = data.results.latitude
+      let long = data.results.longitude
+
+//////////////////////////////////
 Sorting results
 function sortResults(a, b) {
     return a - b
@@ -5,7 +88,7 @@ function sortResults(a, b) {
 results.sort(function(a, b) {
   return a.distance - b.distance
 })
-
+//////////////////////////////////
 Filtering results
 function similar to handleChange/handle submit?
 e.g. 

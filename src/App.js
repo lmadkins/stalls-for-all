@@ -23,7 +23,7 @@ function App() {
       </Routes>
       <main>
         <Routes>
-        <Route path='./components/a' element={<About />}/>
+        <Route path='/about' element={<About />}/>
           <Route
             path='/'
             element={<Search setSearchParams={setSearchParams}/>}

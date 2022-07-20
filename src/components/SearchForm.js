@@ -6,18 +6,15 @@ import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 
-
-
 const SearchForm = ({setSearchParams}) => {
 
   let navigate = useNavigate()
 
   const [searchString, setSearchString] = useState('')
 
-
   const handleChange = (event) => {
     setSearchString(event.target.value)
-    // set SearchString (state) to what is typed into the input form
+    // sets SearchString (state) to what is typed into the input form
   }
 
   const handleSubmit = (event) => {
@@ -25,11 +22,10 @@ const SearchForm = ({setSearchParams}) => {
     navigate(`/results?query=${searchString}`)
   }
 
+
   return (
     <div className='searchForm'>
-      {/* <img
-      src='https://placeholder.pics/svg/300'
-      alt=''/> */}
+
       <Form onSubmit={handleSubmit}>
         {/* Add tooltip or examples? */}
         {/* <Form.Group 
@@ -46,11 +42,13 @@ const SearchForm = ({setSearchParams}) => {
         <Col sm={10}>
             <Form.Control 
               type="address" 
+              autocomplete='street-address'
               placeholder="Location"
               name='searchString'
               id='searchStringInput'
               onChange={handleChange}
-              required />
+              // required 
+              />
           </Col>
         </Form.Group>
       <fieldset>
@@ -81,7 +79,6 @@ const SearchForm = ({setSearchParams}) => {
         </Form.Group>
       </fieldset>
       <Button type="submit">Submit</Button>
-
       </Form>
     </div>
   );

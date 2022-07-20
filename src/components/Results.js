@@ -1,26 +1,23 @@
 import React from 'react';
-
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import ResultsCard from './ResultsCard';
 import SearchForm from './SearchForm';
 import Loading from './Loading';
 
-const Results = ({searchParams }) => {
+const Results = ({ searchParams }) => {
 
   const requestedSearch = searchParams.get('query')
 
   const [results, setResults] = useState('')
   const [error, setError] = useState(false)
-  const [locationDetails, setLocationDetails] = useState('')
   // const [ isLoading, setIsLoading ] = useState(false)
 
   useEffect(() => {
   
-    const apiKey = process.env.REACT_APP_GEOAPIFY_KEY
-
+    const apiKey1 = process.env.REACT_APP_GEOAPIFY_KEY
     // search input (requestedSearch) goes to geocoder 
-    const geoapifyUrl = `https://api.geoapify.com/v1/geocode/search?text=${requestedSearch}&format=json&apiKey=${apiKey}`
+    const geoapifyUrl = `https://api.geoapify.com/v1/geocode/search?text=${requestedSearch}&format=json&apiKey=${apiKey1}`
 
     fetch(geoapifyUrl)
       .then((res) => {
@@ -60,13 +57,6 @@ const Results = ({searchParams }) => {
 
 if (!results) {
   return (
-    // <div className='loading'>
-    // Loading
-    // <Spinner animation="border" role="status">
-    //   <br></br>
-    //   <span className="visually-hidden">Loading...</span>
-    // </Spinner>
-    // </div>
     <Loading />
   )
 }
