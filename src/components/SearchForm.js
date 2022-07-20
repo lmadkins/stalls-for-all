@@ -14,6 +14,7 @@ const SearchForm = ({setSearchParams}) => {
 
   const [searchString, setSearchString] = useState('')
 
+
   const handleChange = (event) => {
     setSearchString(event.target.value)
     // set SearchString (state) to what is typed into the input form
@@ -39,7 +40,9 @@ const SearchForm = ({setSearchParams}) => {
           </Form.Label>
         {/* </Form.Group> */}
           <br />
-        <Form.Group as={Row} className="mb-3" controlId="formHorizontalAddress">
+        <Form.Group as={Row} className="mb-3" 
+        // controlId="formHorizontalAddress"
+        >
         <Col sm={10}>
             <Form.Control 
               type="address" 
@@ -53,7 +56,7 @@ const SearchForm = ({setSearchParams}) => {
       <fieldset>
         <Form.Group as={Row} className="mb-3">
           <Form.Label as="legend" column sm={10}>
-          Optional: Show only results that are
+          (Optional) Show only results that are:
           </Form.Label>
           <Col sm={10}>
             <Form.Check

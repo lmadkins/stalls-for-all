@@ -10,15 +10,7 @@
   /* background-color: pink; */
 }
 
-header {
-  /* grid-column-start: 1;
-  grid-column-end: 5; */
-  background: blueviolet;
-  height: 10vh;
-  text-align: center;
-  text-decoration: none;
-}
-
+/* entire search container */
 .searchContainer {
   border: 2px solid lightgray;
   padding: 10px;
@@ -31,13 +23,26 @@ header {
   /* margin: 20px 20%; */
   /* background-color: dimgray; */
   text-align: center;
-  margin: 50px auto;
+  margin: 20px auto;
 }
 
+.searchContainer img {
+  margin-top: 20px;
+  width: 250px;
+  height: 250px;
+  border-radius: 7px;
+}
+
+/* (form elements and inputs) */
 .searchForm {
   padding: 20px;
   text-align: left;
+  font-size: 18px;
   /* background-color: aquamarine; */
+}
+
+.searchForm button {
+  font-size: 18px;
 }
 
 

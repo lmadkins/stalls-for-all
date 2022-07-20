@@ -5,6 +5,7 @@ import inclusiveSign from './inclusiveSign.png'
 
 const Search = () => {
   const [locationDetails, setLocationDetails] = useState()
+  
   return (
     <div className='searchContainer'>
     <img 
