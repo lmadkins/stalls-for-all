@@ -37,8 +37,6 @@ const Results = ({searchParams }) => {
         // plug those into the url
         const refugeUrl = `https://www.refugerestrooms.org/api/v1/restrooms/by_location?page=1&per_page=10&offset=0&lat=${lat}&lng=${lng}`
 
-        // setIsLoading(true)
-
         fetch(refugeUrl)
         .then((res) => {
           if (res.status === 404) {
@@ -82,12 +80,18 @@ if (!results) {
       </div>
     )
   }
+  
+  results.sort(function(a, b) {
+    return a.distance - b.distance
+  })
 
   return ( 
   <div className='resultsPage'>
     <h3>Showing results for: {requestedSearch}</h3>
     <div className='resultsContainer'>
+
       {results.map((element, index) => (
+        
         <ResultsCard element={element}/>
       ))
       }

@@ -1,3 +1,11 @@
+Sorting results
+function sortResults(a, b) {
+    return a - b
+  }
+results.sort(function(a, b) {
+  return a.distance - b.distance
+})
+
 Filtering results
 function similar to handleChange/handle submit?
 e.g. 
