@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import Badge from 'react-bootstrap/Badge';
+// import Badge from 'react-bootstrap/Badge';
 
 const ResultsCard = ({ element }) =>(
   <div
@@ -19,6 +19,22 @@ const ResultsCard = ({ element }) =>(
     <br></br>
     <h5>{element.name}</h5>
     <h6>{element.street} </h6>  
+
+    {element.accessible === true && 
+      <span className='badge accessibleBadge'>
+        ADA Accessible
+      </span>}
+      
+    {element.unisex === true && 
+      <span className='badge unisexBadge'>
+        Gender Neutral
+      </span>}  
+
+    {element.changing_table === true && 
+      <span className='badge changingTableBadge'>
+        Changing Tables
+      </span>} 
+  
     
   </div>
 

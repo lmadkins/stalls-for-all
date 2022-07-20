@@ -53,6 +53,27 @@ header {
   padding: 20px;
 }
 
+.badge {
+  padding: 5px 9px;
+  text-align: center;
+  border-radius: 7px;
+}
+
+.accessibleBadge {
+  background-color: rgb(2, 127, 245);
+  color: black;
+}
+
+.unisexBadge {
+  background-color: rgb(125, 21, 185);
+  color: white;
+}
+
+.changingTableBadge {
+  background-color: rgb(255, 196, 0);
+  color: black;
+}
+
 @media only screen and (min-width: 768px){
   .resultsContainer {
     display: grid;
@@ -64,7 +85,7 @@ header {
   }
 }
 
-@media only screen and (min-width: 992px){
+@media only screen and (min-width: 1200px){
   .resultsContainer {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
