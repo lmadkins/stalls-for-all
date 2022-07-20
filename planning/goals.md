@@ -9,6 +9,7 @@
 ### MVP Goals
 - A user enters their address or zipcode, gets results nearby (Input goes to a maps API, which returns coordinates, which are then used to get data from the Refuge API)
 - Results listings sorted by nearest options, and show any critical information available (name of building, address, unisex, accessible, changing table) 
+- Sorted by nearest
 - Show link to google maps to take user to directions to the place
 - Mobile-first, responsive, minimalistic design
 - Uses accesibility practices, gender-inclusive language
@@ -18,7 +19,6 @@
 - (or IP locator)
 - Get information from Google Maps Places API about whether the place is open or not 
 - Filter results by ADA/Gender Neutral/Changing tables true/false
-- Show distance information (anpmdditional google maps API)
 - More results by also importing restroom locations from Googles place search for 'toilet' (or other optimal search queries, TBD with research)
 - If there's been a publicly shared code for it, I'd like that to be listed
 - Functionality for users to submit a code to be added to a location 

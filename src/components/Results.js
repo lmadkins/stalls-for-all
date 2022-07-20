@@ -1,31 +1,23 @@
 import React from 'react';
-import Spinner from 'react-bootstrap/Spinner';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import ResultsCard from './ResultsCard';
+import SearchForm from './SearchForm';
+import Loading from './Loading';
 
-// const roundDistance = (num) => {
-//   return Math.round(num * 100) / 100
-// }
-
-const Results = ({searchParams}) => {
+const Results = ({ searchParams }) => {
 
   const requestedSearch = searchParams.get('query')
 
   const [results, setResults] = useState('')
   const [error, setError] = useState(false)
-  const [locationDetails, setLocationDetails] = useState('')
-
-  const searchOptions = {
-    key: process.env.GEOAPIFY_KEY,
-    api: 'https://api.geoapify.com/v1/geocode',
-    endpoint: '/search'
-  }
+  // const [ isLoading, setIsLoading ] = useState(false)
 
   useEffect(() => {
-
+  
+    const apiKey1 = process.env.REACT_APP_GEOAPIFY_KEY
     // search input (requestedSearch) goes to geocoder 
-    const geoapifyUrl = `https://api.geoapify.com/v1/geocode/search?text=${requestedSearch}}&format=json&apiKey=ffac76c40aed404e8307bf7271367b1b`
+    const geoapifyUrl = `https://api.geoapify.com/v1/geocode/search?text=${requestedSearch}&format=json&apiKey=${apiKey1}`
 
     fetch(geoapifyUrl)
       .then((res) => {
@@ -52,6 +44,7 @@ const Results = ({searchParams}) => {
         .then((data) => {
           // returned data with that lat & long is added to results state
           setResults(data)  
+          // setIsLoading(false)
         })
         .catch((err) => {
           console.log(err)
@@ -60,57 +53,41 @@ const Results = ({searchParams}) => {
       .catch((err) => {
         console.log(err)
       })
-}, [])
+}, [requestedSearch])
 
 if (!results) {
   return (
-    <div className='loading'>
-    Loading
-    <Spinner animation="border" role="status">
-      <br></br>
-      <span className="visually-hidden">Loading...</span>
-    </Spinner>
-    </div>
+    <Loading />
   )
 }
 
   if (error) {
     return (
+      
       <div>
         <p>No results were found for {requestedSearch}
         Click <Link to='/'>here</Link> to go back a different search</p>
       </div>
     )
   }
-
-  //map out results to render each individual one
-  let listings = results.map((element, index) => (
   
-    <div
-    key={element.name} 
-    className='resultCard'>
+  results.sort(function(a, b) {
+    return a.distance - b.distance
+  })
 
-    <p>{element.distance}</p>
-    <h3>{element.name}</h3>
-    <h4>{element.street} </h4>  
-    <a 
-        href={`https://www.google.com/maps/@${element.latitude},${element.longitude}14z`}
-        target='_blank'
-        rel="noreferrer">Get Directions
-      </a> 
+  return ( 
+  <div className='resultsPage'>
+    <h3>Showing results for: {requestedSearch}</h3>
+    <div className='resultsContainer'>
+
+      {results.map((element, index) => (
+        
+        <ResultsCard element={element}/>
+      ))
+      }
     </div>
-  ))
-
-
-  return (
-    <div className='resultsPage'>
-      <h2>Showing results for: {requestedSearch}</h2>
-
-      <ResultsCard 
-        listings={listings}
-      />
-    </div>
-  );
+  </div>
+  )   
 };
 
 export default Results;
