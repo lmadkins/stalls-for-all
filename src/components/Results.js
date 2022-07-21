@@ -5,7 +5,8 @@ import ResultsCard from './ResultsCard';
 import SearchForm from './SearchForm';
 import Loading from './Loading';
 
-const Results = ({ searchParams }) => {
+
+const Results = ({ searchParams, onlyADA, setOnlyADA, onlyUnisex, setOnlyUnisex}) => {
 
   const requestedSearch = searchParams.get('query')
 
@@ -30,11 +31,25 @@ const Results = ({ searchParams }) => {
         // get latitude and longitude properties from the location the geocoder identified
         let lat = data.results[0].lat
         let lng = data.results[0].lon 
-
+        // let id = data.results[0].place_id
+          console.log(data)
         // plug those into the url
-        const refugeUrl = `https://www.refugerestrooms.org/api/v1/restrooms/by_location?page=1&per_page=10&offset=0&lat=${lat}&lng=${lng}`
+    
+        const noFilterUrl = `https://www.refugerestrooms.org/api/v1/restrooms/by_location?page=1&per_page=10&offset=0&lat=${lat}&lng=${lng}`
 
-        fetch(refugeUrl)
+        const adaFilterUrl = `https://www.refugerestrooms.org/api/v1/restrooms/by_location?page=1&per_page=10&offset=0&ada=true&lat=${lat}&lng=${lng}`
+
+        const unisexFilterUrl = `https://www.refugerestrooms.org/api/v1/restrooms/by_location?page=1&per_page=10&offset=0&unisex=true&lat=${lat}&lng=${lng}`
+
+        const bothFilterUrl = `https://www.refugerestrooms.org/api/v1/restrooms/by_location?page=1&per_page=10&offset=0&ada=true&unisex=true&lat=${lat}&lng=${lng}`
+
+        // const urlFilter = (
+        //   onlyUnisex ? (
+        //     fetch(unisexFilterUrl)
+        //     ) : fetch(noFilterUrl)
+        // )
+        
+        fetch (noFilterUrl)
         .then((res) => {
           if (res.status === 404) {
             return setError(true)
@@ -45,6 +60,7 @@ const Results = ({ searchParams }) => {
           // returned data with that lat & long is added to results state
           setResults(data)  
           // setIsLoading(false)
+          // console.log(data[0].id)
         })
         .catch((err) => {
           console.log(err)
@@ -75,13 +91,15 @@ if (!results) {
     return a.distance - b.distance
   })
 
+
+
   return ( 
   <div className='resultsPage'>
     <h3>Showing results for: {requestedSearch}</h3>
     <div className='resultsContainer'>
 
-      {results.map((element, index) => (
-        
+      {results.map((element) => (
+       
         <ResultsCard element={element}/>
       ))
       }
