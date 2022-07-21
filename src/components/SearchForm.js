@@ -1,18 +1,22 @@
 import React from 'react';
-import { useState } from "react";
+import { useContext, useState } from "react";
 import {  useNavigate } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
+import { FilterContext } from './FilterContext';
 
 const SearchForm = ({setSearchParams}) => {
+  
+  const { onlyADA, setOnlyADA } = useContext(FilterContext)
+  const { onlyUnisex, setOnlyUnisex } = useContext(FilterContext)
 
   let navigate = useNavigate()
 
   const [searchString, setSearchString] = useState('')
-  const [onlyUnisex, setOnlyUnisex] = useState(false)
-  const [onlyADA, setOnlyADA] = useState(false)
+  // const [onlyUnisex, setOnlyUnisex] = useState(false)
+  // const [onlyADA, setOnlyADA] = useState(false)
 
   const handleChange = (event) => {
     setSearchString(event.target.value)
@@ -33,23 +37,24 @@ const SearchForm = ({setSearchParams}) => {
   const handleADAFilter = (event) => {
     if (event.target.checked) {
       console.log('ADA filter checked')
-      setOnlyADA(true)
+      // setOnlyADA(true)
     } 
     // else {
     //   setOnlyADA(false)
     //   console.log('ADA filter un-checked')
     // }
-    console.log(onlyADA)
+    // console.log(onlyADA)
   }
 
   const handleUnisexFilter = (event) => {
     if (event.target.checked) {
       console.log('Unisex filter checked')
       setOnlyUnisex(true)
-    }else {
-      setOnlyUnisex(false)
-      console.log('Unisex filter un-checked')
-    }
+    } 
+    // else {
+    //   setOnlyUnisex(false)
+    //   console.log('Unisex filter un-checked')
+    // }
   }
 
   return (
@@ -71,7 +76,7 @@ const SearchForm = ({setSearchParams}) => {
         <Col sm={10}>
             <Form.Control 
               type="address" 
-              autocomplete='street-address'
+              autoComplete='street-address'
               placeholder="Location"
               name='searchString'
               id='searchStringInput'

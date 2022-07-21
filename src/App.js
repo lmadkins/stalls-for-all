@@ -1,19 +1,22 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Route, Routes, useSearchParams }  from 'react-router-dom';
-import { useState } from 'react';
+import { Route, Routes, UNSAFE_RouteContext, useSearchParams }  from 'react-router-dom';
+import { useContext, useState } from 'react';
 import About from './components/About';
 import NavBar from './components/NavBar';
 import Results from './components/Results';
 import Search from './components/Search';
-
+import { FilterContext } from './components/FilterContext'
 
 function App() {
   let [searchParams, setSearchParams] = useSearchParams()
 
+  const [onlyUnisex, setOnlyUnisex] = useState(false)
+  const [onlyADA, setOnlyADA] = useState(false)
 
   return (
     <div className="App">
+    
       <NavBar />
       <Routes>
         {/* <Route
@@ -25,11 +28,13 @@ function App() {
           element={<About setSearchParams={setSearchParams}/>}
           />
       </Routes>
+      <FilterContext.Provider 
+        value={{onlyUnisex, setOnlyUnisex, onlyADA, setOnlyADA}}>
       <main>
         <Routes>
         <Route path='/about' element={<About />}/>
           <Route
-            path='/'
+            path=''
             element={<Search setSearchParams={setSearchParams}/>}
             />
             <Route
@@ -37,7 +42,9 @@ function App() {
             element={<Results searchParams={searchParams}/>}
             />
         </Routes>
+       
         </main>
+        </FilterContext.Provider>
     </div>
   );
 }

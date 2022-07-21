@@ -1,18 +1,22 @@
 import React from 'react';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import ResultsCard from './ResultsCard';
 import SearchForm from './SearchForm';
 import Loading from './Loading';
+import { FilterContext } from './FilterContext';
 
 
-const Results = ({ searchParams, onlyADA, setOnlyADA, onlyUnisex, setOnlyUnisex}) => {
+const Results = ({ searchParams}) => {
 
   const requestedSearch = searchParams.get('query')
-
+  
+  // import ADA and Unisex filters as context
+  const { onlyADA, setOnlyADA } = useContext(FilterContext)
+  const { onlyUnisex, setOnlyUnisex } = useContext(FilterContext)
+  // create new state
   const [results, setResults] = useState('')
   const [error, setError] = useState(false)
-  // const [ isLoading, setIsLoading ] = useState(false)
 
   useEffect(() => {
   
@@ -35,21 +39,23 @@ const Results = ({ searchParams, onlyADA, setOnlyADA, onlyUnisex, setOnlyUnisex}
           console.log(data)
         // plug those into the url
     
-        const noFilterUrl = `https://www.refugerestrooms.org/api/v1/restrooms/by_location?page=1&per_page=10&offset=0&lat=${lat}&lng=${lng}`
+      const noFilterUrl = `https://www.refugerestrooms.org/api/v1/restrooms/by_location?page=1&per_page=10&offset=0&lat=${lat}&lng=${lng}`
 
-        const adaFilterUrl = `https://www.refugerestrooms.org/api/v1/restrooms/by_location?page=1&per_page=10&offset=0&ada=true&lat=${lat}&lng=${lng}`
+      const adaFilterUrl = `https://www.refugerestrooms.org/api/v1/restrooms/by_location?page=1&per_page=10&offset=0&ada=true&lat=${lat}&lng=${lng}`
 
-        const unisexFilterUrl = `https://www.refugerestrooms.org/api/v1/restrooms/by_location?page=1&per_page=10&offset=0&unisex=true&lat=${lat}&lng=${lng}`
+      const unisexFilterUrl = `https://www.refugerestrooms.org/api/v1/restrooms/by_location?page=1&per_page=10&offset=0&unisex=true&lat=${lat}&lng=${lng}`
 
-        const bothFilterUrl = `https://www.refugerestrooms.org/api/v1/restrooms/by_location?page=1&per_page=10&offset=0&ada=true&unisex=true&lat=${lat}&lng=${lng}`
+      const bothFilterUrl = `https://www.refugerestrooms.org/api/v1/restrooms/by_location?page=1&per_page=10&offset=0&ada=true&unisex=true&lat=${lat}&lng=${lng}`
 
-        // const urlFilter = (
-        //   onlyUnisex ? (
-        //     fetch(unisexFilterUrl)
-        //     ) : fetch(noFilterUrl)
-        // )
-        
-        fetch (noFilterUrl)
+      if (onlyUnisex && onlyADA === true)
+        fetch(bothFilterUrl)
+      else if (onlyUnisex === true) 
+        fetch(unisexFilterUrl)
+      else if (onlyADA === true)
+        fetch(adaFilterUrl)
+      // else if (!onlyUnisex && !onlyADA === true)
+      // fetch(noFilterUrl)
+        // fetch(setOnlyUnisex ?  unisexFilterUrl: noFilterUrl)
         .then((res) => {
           if (res.status === 404) {
             return setError(true)
@@ -69,7 +75,7 @@ const Results = ({ searchParams, onlyADA, setOnlyADA, onlyUnisex, setOnlyUnisex}
       .catch((err) => {
         console.log(err)
       })
-}, [requestedSearch])
+}, [requestedSearch, onlyADA, onlyUnisex])
 
 if (!results) {
   return (
@@ -91,15 +97,11 @@ if (!results) {
     return a.distance - b.distance
   })
 
-
-
   return ( 
   <div className='resultsPage'>
     <h3>Showing results for: {requestedSearch}</h3>
     <div className='resultsContainer'>
-
       {results.map((element) => (
-       
         <ResultsCard element={element}/>
       ))
       }
