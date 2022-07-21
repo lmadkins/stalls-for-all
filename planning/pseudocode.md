@@ -1,3 +1,6 @@
+get place Info
+
+
 Auto search form
 
 Click search to show locations near you
@@ -92,16 +95,19 @@ results.sort(function(a, b) {
 Filtering results
 function similar to handleChange/handle submit?
 e.g. 
-and set state showUnisex, setShowUnisex = useState('true')
+and set state onlyUnisex, setOnlyUnisex = useState(false)
 setShowUnisex(true)
-showADA, setShowADA = useState('true')
-setShowADA(true)
-showChangingTables, showChangingTables = useState('true')
-setShowUnisex(true)
+showOnlyADA, setOnlyADA = useState(false)
 
+event listeners and event methods to set State to true
+
+in Results
+if onlyUnisex, setOnlyUnisex
+if .form-check-input:checked
 unisexFormFilter
 adaFormFilter
-changingTablesFormFilter
+
+
 //////////////////////////////////
 Header/Nav
 Route to about
