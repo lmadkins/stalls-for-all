@@ -10,6 +10,9 @@
   /* background-color: pink; */
 }
 
+/* .nav {
+  font-size: 18px;
+} */
 /* entire search container */
 .searchContainer {
   border: 2px solid lightgray;
@@ -18,19 +21,8 @@
   transition: 0.3s;
   border-radius: 5px;
   max-width: 500px;
-  /* margin-left: 20%;
-  margin-right: 20%; */
-  /* margin: 20px 20%; */
-  /* background-color: dimgray; */
   text-align: center;
-  margin: 20px auto;
-}
-
-.searchContainer img {
-  margin-top: 20px;
-  width: 250px;
-  height: 250px;
-  border-radius: 7px;
+  margin: 30px auto;
 }
 
 /* (form elements and inputs) */
@@ -38,7 +30,6 @@
   padding: 20px;
   text-align: left;
   font-size: 18px;
-  /* background-color: aquamarine; */
 }
 
 .searchForm button {
@@ -47,26 +38,31 @@
 
 
 .resultsPage {
-  /* grid-template-columns: repeat(1, 1fr); */
   margin: 0 auto;
   text-align: center;
 }
 
-.resultsContainer {
-  /* grid-template-columns: repeat(1, 1fr); */
-  margin: 0 auto;
-  text-align: center;
-}
 .resultCard {
   border: 2px solid lightgray;
   padding: 10px;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
   border-radius: 5px;
-  max-width: 400px;
-  /* margin-left: 20%;
-  margin-right: 20%; */
+  max-width: 500px;
   margin: 20px 20%;
+  text-align: left;
+}
+
+.resultCard h4 {
+  float: left;
+  margin: 0;
+}
+
+.resultCard span p {
+  float: left;
+}
+.resultCard span a {
+  float: right;
 }
 
 .resultCard:hover, .searchContainer:hover {
@@ -75,15 +71,22 @@
 
 .aboutContainer {
   border: 2px solid lightgray;
-  padding: 100px;
+  padding: 50px;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
   border-radius: 5px;
   max-width: 500px;
-  margin: 20px 20%;
   /* background-color: dimgray; */
   text-align: center;
   margin: 0 auto;
+  margin-top: 30px;
+}
+
+.aboutContainer img {
+  margin-bottom: 50px;
+  width: 250px;
+  height: 250px;
+  border-radius: 7px;
 }
 
 .aboutContainer a {
@@ -93,7 +96,7 @@
 .loading {
   /* grid-area: 2 / 2 / 6 / 5; */
   text-align: center;
-  margin: 0 auto;
+  margin: 50px auto;
   /* background-color: rgb(146, 195, 234); */
 }
 
@@ -124,10 +127,15 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(6, 1fr);
-    /* width: 400px; */
+   
     /* margin: 10px; */
     margin: 10px;
   }
+
+  /* .resultsCard {
+    min-width: 400px;
+    margin: 0;
+  } */
 }
 
 @media only screen and (min-width: 1200px){
@@ -135,7 +143,11 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(6, 1fr);
-    /* width: 400px; */
     margin: 10px;
   }
+
+  /* .resultsCard {
+    min-width: 300px;
+    margin: 0px 0px;
+  } */
 }

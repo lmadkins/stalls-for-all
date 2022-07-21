@@ -7,8 +7,8 @@ const ResultsCard = ({ element }) =>(
     key={element.name} 
     className='resultCard'>
 
-    <span>{Math.round((element.distance) * 100) / 100} miles away
-    <br></br>
+    <span>
+      <p> {Math.round((element.distance) * 100) / 100} miles away</p>
     <a 
       href={`https://www.google.com/maps/@${element.latitude},${element.longitude}14z`}
       target='_blank'
