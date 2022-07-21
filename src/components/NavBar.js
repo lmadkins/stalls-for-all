@@ -7,10 +7,11 @@ import About from './About';
 
 function NavBar(props) {
   return (
-    <>
-   <Navbar 
-   bg="light"
-   sticky="top">
+  <>
+    <Navbar 
+    bg="light"
+    sticky="top"
+    className='nav'>
         <Container>
           <Navbar.Brand href="/">Stalls for All</Navbar.Brand>
           <Navbar.Collapse className="justify-content-end">

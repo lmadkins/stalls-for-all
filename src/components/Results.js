@@ -14,6 +14,7 @@ const Results = ({ searchParams}) => {
   // import ADA and Unisex filters as context
   const { onlyADA, setOnlyADA } = useContext(FilterContext)
   const { onlyUnisex, setOnlyUnisex } = useContext(FilterContext)
+
   // create new state
   const [results, setResults] = useState('')
   const [error, setError] = useState(false)
@@ -47,15 +48,26 @@ const Results = ({ searchParams}) => {
 
       const bothFilterUrl = `https://www.refugerestrooms.org/api/v1/restrooms/by_location?page=1&per_page=10&offset=0&ada=true&unisex=true&lat=${lat}&lng=${lng}`
 
-      if (onlyUnisex && onlyADA === true)
-        fetch(bothFilterUrl)
-      else if (onlyUnisex === true) 
-        fetch(unisexFilterUrl)
-      else if (onlyADA === true)
-        fetch(adaFilterUrl)
-      // else if (!onlyUnisex && !onlyADA === true)
-      // fetch(noFilterUrl)
-        // fetch(setOnlyUnisex ?  unisexFilterUrl: noFilterUrl)
+      // if (onlyUnisex && onlyADA === true)
+      //   // console.log('filter both')
+      //   fetch(bothFilterUrl)
+      // else if (onlyUnisex === true) 
+      //  fetch(unisexFilterUrl)
+      //   // console.log('filter only unisex')
+      // else if (onlyADA === true)
+      //   fetch(adaFilterUrl)
+      //   // console.log('filter only ADA')
+      // else if (!onlyUnisex && !onlyADA ) 
+      //   fetch(noFilterUrl)
+        // console.log('filter neither')
+
+      fetch(onlyUnisex === true  && onlyADA === true &&
+        bothFilterUrl)
+      fetch(onlyUnisex === true && !onlyADA && 
+        unisexFilterUrl)
+      fetch(onlyADA === true && !onlyUnisex &&
+          adaFilterUrl)
+        fetch(noFilterUrl)
         .then((res) => {
           if (res.status === 404) {
             return setError(true)
@@ -85,7 +97,6 @@ if (!results) {
 
   if (error) {
     return (
-      
       <div>
         <p>No results were found for {requestedSearch}
         Click <Link to='/'>here</Link> to go back a different search</p>

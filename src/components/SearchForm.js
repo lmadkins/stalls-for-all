@@ -7,16 +7,15 @@ import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import { FilterContext } from './FilterContext';
 
+
 const SearchForm = ({setSearchParams}) => {
-  
+
   const { onlyADA, setOnlyADA } = useContext(FilterContext)
   const { onlyUnisex, setOnlyUnisex } = useContext(FilterContext)
 
   let navigate = useNavigate()
 
   const [searchString, setSearchString] = useState('')
-  // const [onlyUnisex, setOnlyUnisex] = useState(false)
-  // const [onlyADA, setOnlyADA] = useState(false)
 
   const handleChange = (event) => {
     setSearchString(event.target.value)
@@ -28,33 +27,16 @@ const SearchForm = ({setSearchParams}) => {
     navigate(`/results?query=${searchString}`)
   }
 
-  // const handleCheckFilter = (event) => {
-  //   if (event.target.checked) {
-  //     console.log('hi')
-
-  //   }
-  // }
   const handleADAFilter = (event) => {
     if (event.target.checked) {
-      console.log('ADA filter checked')
-      // setOnlyADA(true)
+      setOnlyADA(true)
     } 
-    // else {
-    //   setOnlyADA(false)
-    //   console.log('ADA filter un-checked')
-    // }
-    // console.log(onlyADA)
   }
 
   const handleUnisexFilter = (event) => {
     if (event.target.checked) {
-      console.log('Unisex filter checked')
       setOnlyUnisex(true)
     } 
-    // else {
-    //   setOnlyUnisex(false)
-    //   console.log('Unisex filter un-checked')
-    // }
   }
 
   return (
@@ -81,7 +63,8 @@ const SearchForm = ({setSearchParams}) => {
               name='searchString'
               id='searchStringInput'
               onChange={handleChange}
-              required 
+              required
+              aria-required="true"  
               />
           </Col>
         </Form.Group>
