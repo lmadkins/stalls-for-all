@@ -1,52 +1,73 @@
 import React from 'react';
 import inclusiveSign from './inclusiveSign.png'
 
+
 function About() {
   return (
     <div className='aboutContainer'>
       <img 
-      src={inclusiveSign} alt='sign'/>
-      <p>
-      This app is based on the principle that everyone has the right to safe and easy access to a restroom that meets their needs, was designed to help facilitate this.
+      alt='Bathroom sign'
+      src={inclusiveSign}/>
+      
+      <p className='h5'>
+        This app is inspired by the principle that everyone has the right to safe and easy access to a restroom that meets their needs, was designed to help facilitate this.
+      </p>
+      
+      <br></br>
+    
+      <p className='h6'>
+        The database of locations comes from
+      
+        <span><a 
+        aria-label='Link to Refuge Restroom Website'
+          href='https://www.refugerestrooms.org/'
+          rel='noreferrer'
+          target='_blank'>
+          Refuge Restrooms
+        </a></span> 
+
+        , and utilizes their   
+        
+        <span><a 
+          aria-label='Link to Refuge Restroom API Website'
+          href='https://www.refugerestrooms.org/api/docs/'
+          rel='noreferrer'
+          target='_blank'
+          >
+          API. 
+        </a></span>
+
         <br></br>
-      The database of locations comes from <span> <a 
-        href='https://www.refugerestrooms.org/'
-        target='_blank'
-        rel="noreferrer"
-        aria-label='Link to Refuge Restroom Website'>
-        Refuge Restrooms
-      </a></span> 
-      , and utilizes their   
-      <span> <a 
-        href='https://www.refugerestrooms.org/api/docs/'
-        target='_blank'
-        rel="noreferrer"
-        aria-label='Link to Refuge Restroom API Website'>
-        API. 
-      </a></span>
-      <p></p>
-      For retrieving location and distance information, it utilizes <span><a 
-        href='https://www.geoapify.com/geocoding-api'
-        target='_blank'
-        rel="noreferrer"
-        aria-label='Link to Geoapify API Website'>
-        Geoapify's Geocoding API. 
-      </a></span> 
-      <p></p>
+
+        For retrieving location and distance information, it utilizes 
+
+        <span><a 
+          aria-label='Link to Geoapify API Website'
+          href='https://www.geoapify.com/geocoding-api'
+          rel='noreferrer'
+          target='_blank'>
+          Geoapify's Geocoding API. 
+        </a></span> 
+
+      <br></br>
+
       Site made using 
-      <span> <a 
+
+      <span><a 
+        aria-label='Link to React Website'
         href='https://reactjs.org/'
-        target='_blank'
-        rel="noreferrer"
-        aria-label='Link to React Website'>
-         React
-      </a> </span> 
+        rel='noreferrer'
+        target='_blank'>
+        React
+      </a></span> 
+
       and 
-      <span> <a 
+
+      <span><a 
+        aria-label='Link to React Bootstrap Website'
         href='https://react-bootstrap.netlify.app/'
-        target='_blank'
-        rel="noreferrer"
-        aria-label='Link to React Bootstrap Website'>
+        rel='noreferrer'
+        target='_blank'>
         React Bootstrap. 
       </a></span> 
 

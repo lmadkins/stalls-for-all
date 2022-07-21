@@ -1,13 +1,13 @@
 import React from 'react';
 import { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { FilterContext } from './FilterContext';
+import Loading from './Loading';
 import ResultsCard from './ResultsCard';
 import SearchForm from './SearchForm';
-import Loading from './Loading';
-import { FilterContext } from './FilterContext';
 
 
-const Results = ({ searchParams}) => {
+const Results = ({ searchParams }) => {
 
   const requestedSearch = searchParams.get('query')
   
@@ -19,8 +19,9 @@ const Results = ({ searchParams}) => {
   const [results, setResults] = useState('')
   const [error, setError] = useState(false)
 
+
   useEffect(() => {
-  
+    
     const apiKey1 = process.env.REACT_APP_GEOAPIFY_KEY
     // search input (requestedSearch) goes to geocoder 
     const geoapifyUrl = `https://api.geoapify.com/v1/geocode/search?text=${requestedSearch}&format=json&apiKey=${apiKey1}`
@@ -54,11 +55,11 @@ const Results = ({ searchParams}) => {
 
       // !onlyUnisex && !onlyADA &&
       //   fetch(noFilterUrl)    
-      onlyUnisex && 
-        fetch(unisexFilterUrl)
+      // onlyUnisex && 
+      //   fetch(unisexFilterUrl)
 
-      onlyADA &&
-        fetch(adaFilterUrl)
+      // onlyADA &&
+      //   fetch(adaFilterUrl)
       
 
       // if (onlyUnisex && onlyADA === true)
@@ -80,7 +81,7 @@ const Results = ({ searchParams}) => {
       //   unisexFilterUrl)
       // fetch(onlyADA === true && !onlyUnisex &&
       //     adaFilterUrl)
-        // fetch(noFilterUrl)
+        fetch(noFilterUrl)
         .then((res) => {
           if (res.status === 404) {
             return setError(true)
@@ -124,7 +125,8 @@ if (!results) {
 
   return ( 
   <div className='resultsPage'>
-    <h3>Showing results for: {requestedSearch}</h3>
+    <br></br>
+    <p class='h3'>Showing results for: {requestedSearch}</p>
     <div className='resultsContainer'>
       {results.map((element) => (
         <ResultsCard element={element}/>

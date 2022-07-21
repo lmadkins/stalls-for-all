@@ -1,5 +1,10 @@
 get place Info
+const detailsUrl = `https://api.geoapify.com/v2/place-details?lat=45.51631561428553&lon=-122.61720697168224&apiKey=YOUR_API_KEY`
+https://api.geoapify.com/v2/place-details?lat=45.51230558248889&lon=-122.61781877318535&features=building.places&apiKey=d55c82cbf6894f01bd75ad568f8cbc94
 
+lat = results.[0].latitutde
+long = results.[0].long
+GEOAPIFYKEY2
 
 Auto search form
 

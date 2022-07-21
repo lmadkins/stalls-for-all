@@ -44,54 +44,49 @@ const SearchForm = ({setSearchParams}) => {
 
       <Form onSubmit={handleSubmit}>
         {/* Add tooltip or examples? */}
-        {/* <Form.Group 
-          as={Row} 
-          className="mb-3" controlId="formHorizontalAddress"> */}
-          <Form.Label column sm={10}>
-              Enter your location
-          </Form.Label>
-        {/* </Form.Group> */}
-          <br />
-        <Form.Group as={Row} className="mb-3" 
-        // controlId="formHorizontalAddress"
+        <br />
+        <Form.Group as={Row} className='mb-3' 
         >
         <Col sm={10}>
             <Form.Control 
-              type="address" 
+              aria-required='true'
+              required 
               autoComplete='street-address'
-              placeholder="Location"
-              name='searchString'
               id='searchStringInput'
+              name='searchString'
               onChange={handleChange}
-              required
-              aria-required="true"  
+              placeholder='Location'
+              type='address' 
               />
           </Col>
         </Form.Group>
-      <fieldset>
-        <Form.Group as={Row} className="mb-3">
-          <Form.Label as="legend" column sm={10}>
-          (Optional) Show only results that are:
-          </Form.Label>
-          <Col sm={10}>
-            <Form.Check
-              label="Gender Neutral"
-              name="formHorizontalCheckboxes"
-              id="unisexFormFilter"
-              className='checkbox'
-              onChange={handleUnisexFilter}
-            />
-            <Form.Check
-              label=" ADA Accessible"
-              name="formHorizontalCheckboxes"
-              id="adaFormFilter"
-              className='checkbox'
-              onChange={handleADAFilter}
-            />
-          </Col>
-        </Form.Group>
-      </fieldset>
-      <Button type="submit">Submit</Button>
+
+        <fieldset>
+          <Form.Group as={Row} className='mb-3'>
+            <Form.Label as='legend' column sm={10}>
+              (Optional) Show only results that are:
+            </Form.Label>
+            <Col sm={10}>
+              <Form.Check
+                className='checkbox'
+                id='unisexFormFilter'
+                label='Gender Neutral'
+                name='formHorizontalCheckboxes'
+                onChange={handleUnisexFilter}
+              />
+              <Form.Check
+                className='checkbox'
+                id='adaFormFilter'
+                label=' ADA Accessible'
+                name='formHorizontalCheckboxes'
+                onChange={handleADAFilter}
+              />
+            </Col>
+          </Form.Group>
+        </fieldset>
+
+      <Button type='submit'>Submit</Button>
+
       </Form>
     </div>
   );
