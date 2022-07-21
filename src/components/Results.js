@@ -37,16 +37,29 @@ const Results = ({ searchParams}) => {
         let lat = data.results[0].lat
         let lng = data.results[0].lon 
         // let id = data.results[0].place_id
-          console.log(data)
+          // console.log(data)
         // plug those into the url
     
-      const noFilterUrl = `https://www.refugerestrooms.org/api/v1/restrooms/by_location?page=1&per_page=10&offset=0&lat=${lat}&lng=${lng}`
+     
+      const refugeBaseUrl = `https://www.refugerestrooms.org/api/v1/restrooms/by_location?page=1&per_page=10&offset=0&`
 
-      const adaFilterUrl = `https://www.refugerestrooms.org/api/v1/restrooms/by_location?page=1&per_page=10&offset=0&ada=true&lat=${lat}&lng=${lng}`
+      const noFilterUrl = `${refugeBaseUrl}&lat=${lat}&lng=${lng}`
 
-      const unisexFilterUrl = `https://www.refugerestrooms.org/api/v1/restrooms/by_location?page=1&per_page=10&offset=0&unisex=true&lat=${lat}&lng=${lng}`
+      const adaFilterUrl = `${refugeBaseUrl}ada=true&lat=${lat}&lng=${lng}`
 
-      const bothFilterUrl = `https://www.refugerestrooms.org/api/v1/restrooms/by_location?page=1&per_page=10&offset=0&ada=true&unisex=true&lat=${lat}&lng=${lng}`
+      const unisexFilterUrl = `${refugeBaseUrl}unisex=true&lat=${lat}&lng=${lng}`
+      // const unisexFilterUrl = refugeBaseUrl + 'unisex=true&lat=' + lat + '&lng=' + lng
+      const bothFilterUrl = `${refugeBaseUrl}ada=true&unisex=true&lat=${lat}&lng=${lng}`
+      
+
+      // !onlyUnisex && !onlyADA &&
+      //   fetch(noFilterUrl)    
+      onlyUnisex && 
+        fetch(unisexFilterUrl)
+
+      onlyADA &&
+        fetch(adaFilterUrl)
+      
 
       // if (onlyUnisex && onlyADA === true)
       //   // console.log('filter both')
@@ -59,15 +72,15 @@ const Results = ({ searchParams}) => {
       //   // console.log('filter only ADA')
       // else if (!onlyUnisex && !onlyADA ) 
       //   fetch(noFilterUrl)
-        // console.log('filter neither')
+      //   console.log('filter neither')
 
-      fetch(onlyUnisex === true  && onlyADA === true &&
-        bothFilterUrl)
-      fetch(onlyUnisex === true && !onlyADA && 
-        unisexFilterUrl)
-      fetch(onlyADA === true && !onlyUnisex &&
-          adaFilterUrl)
-        fetch(noFilterUrl)
+      // fetch(onlyUnisex === true  && onlyADA === true &&
+      //   bothFilterUrl)
+      // fetch(onlyUnisex === true && !onlyADA && 
+      //   unisexFilterUrl)
+      // fetch(onlyADA === true && !onlyUnisex &&
+      //     adaFilterUrl)
+        // fetch(noFilterUrl)
         .then((res) => {
           if (res.status === 404) {
             return setError(true)
@@ -76,6 +89,7 @@ const Results = ({ searchParams}) => {
         })
         .then((data) => {
           // returned data with that lat & long is added to results state
+          console.log(data)
           setResults(data)  
           // setIsLoading(false)
           // console.log(data[0].id)
