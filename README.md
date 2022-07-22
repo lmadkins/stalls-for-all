@@ -9,8 +9,8 @@ To view the deployed site hosted on Netlify, click [here](https://stalls-for-all
 
 ### To view locally:
 - Fork and clone this repository
-- In your terminal, type "cd project-2"
-- Once inside the project-2 repo, type "npm i"
+- In your terminal, type "cd project-two-react"
+- Once inside the project-2-react directory, type "npm i"
 - After installation is complete, type "npm start"
 - Open in your code editor
 
@@ -19,5 +19,5 @@ Being built with React, using [Geoapify Geocoding API](https://www.geoapify.com/
 
 ## Contribution Guidelines
 - Contributions are welcome! 
-- In your terminal, add and commit your changes
+- In your terminal, add and commit your changes on a new branch
 - Navigate to this repo on github and create a new pull request
