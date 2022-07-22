@@ -8,8 +8,9 @@ import Row from 'react-bootstrap/Row';
 import { FilterContext } from './FilterContext';
 
 
-const SearchForm = ({setSearchParams}) => {
+const SearchForm = ( {setSearchParams} ) => {
 
+  // set filters for search
   const { onlyADA, setOnlyADA } = useContext(FilterContext)
   const { onlyUnisex, setOnlyUnisex } = useContext(FilterContext)
 
@@ -27,6 +28,7 @@ const SearchForm = ({setSearchParams}) => {
     navigate(`/results?query=${searchString}`)
   }
 
+  // filter handling
   const handleADAFilter = (event) => {
     if (event.target.checked) {
       setOnlyADA(true)
@@ -43,10 +45,8 @@ const SearchForm = ({setSearchParams}) => {
     <div className='searchForm'>
 
       <Form onSubmit={handleSubmit}>
-        {/* Add tooltip or examples? */}
         <br />
-        <Form.Group as={Row} className='mb-3' 
-        >
+        <Form.Group as={Row} className='mb-3' >
         <Col sm={10}>
             <Form.Control 
               aria-required='true'
@@ -56,8 +56,7 @@ const SearchForm = ({setSearchParams}) => {
               name='searchString'
               onChange={handleChange}
               placeholder='Location'
-              type='address' 
-              />
+              type='address' />
           </Col>
         </Form.Group>
 
@@ -66,6 +65,7 @@ const SearchForm = ({setSearchParams}) => {
             <Form.Label as='legend' column sm={10}>
               (Optional) Show only results that are:
             </Form.Label>
+
             <Col sm={10}>
               <Form.Check
                 className='checkbox'
@@ -82,6 +82,7 @@ const SearchForm = ({setSearchParams}) => {
                 onChange={handleADAFilter}
               />
             </Col>
+
           </Form.Group>
         </fieldset>
 

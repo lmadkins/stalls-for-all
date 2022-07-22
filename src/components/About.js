@@ -7,7 +7,7 @@ function About() {
     <div className='aboutContainer'>
       <img 
       alt='Bathroom sign'
-      src={inclusiveSign}/>
+      src={inclusiveSign} />
       
       <p className='h5'>
         This app is inspired by the principle that everyone has the right to safe and easy access to a restroom that meets their needs.
@@ -22,7 +22,7 @@ function About() {
         aria-label='Link to Refuge Restroom Website'
           href='https://www.refugerestrooms.org/'
           rel='noreferrer'
-          target='_blank'>
+          target='_blank' >
           Refuge Restrooms
         </a></span> 
 
@@ -32,8 +32,7 @@ function About() {
           aria-label='Link to Refuge Restroom API Website'
           href='https://www.refugerestrooms.org/api/docs/'
           rel='noreferrer'
-          target='_blank'
-          >
+          target='_blank' >
           API 
         </a></span>
         .
@@ -45,7 +44,7 @@ function About() {
           aria-label='Link to Geoapify API Website'
           href='https://www.geoapify.com/geocoding-api'
           rel='noreferrer'
-          target='_blank'>
+          target='_blank' >
           Geoapify's Geocoding API 
         </a></span> 
     
@@ -58,7 +57,7 @@ function About() {
         aria-label='Link to React Website'
         href='https://reactjs.org/'
         rel='noreferrer'
-        target='_blank'>
+        target='_blank' >
         React
       </a> </span> 
 
@@ -68,7 +67,7 @@ function About() {
         aria-label='Link to React Bootstrap Website'
         href='https://react-bootstrap.netlify.app/'
         rel='noreferrer'
-        target='_blank'>
+        target='_blank' >
         React Bootstrap 
       </a></span> 
       .

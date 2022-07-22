@@ -141,6 +141,7 @@ span .notBadge {
   color: white;
 }
 
+/* Medium Screens */
 @media only screen and (min-width: 768px){
 
   .searchContainer {
@@ -185,9 +186,9 @@ span .notBadge {
     height: 275px;
     border-radius: 7px;
   }
-
 }
 
+/* Larger Screens */
 @media only screen and (min-width: 1200px){
 
   .searchContainer img {

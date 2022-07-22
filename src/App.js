@@ -8,6 +8,7 @@ import Results from './components/Results';
 import Search from './components/Search';
 import { FilterContext } from './components/FilterContext'
 
+
 function App() {
   let [searchParams, setSearchParams] = useSearchParams()
 
@@ -25,12 +26,10 @@ function App() {
         <Route path='/about' element={<About />}/>
           <Route
             path=''
-            element={<Search setSearchParams={setSearchParams}/>}
-            />
+            element={<Search setSearchParams={setSearchParams}/>}/>
             <Route
             path='/results'
-            element={<Results searchParams={searchParams}/>}
-            />
+            element={<Results searchParams={searchParams}/>}/>
         </Routes>
         </main>
         </FilterContext.Provider>

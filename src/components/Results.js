@@ -5,6 +5,7 @@ import { FilterContext } from './FilterContext';
 import Loading from './Loading';
 import ResultsCard from './ResultsCard';
 
+
 const Results = ({ searchParams }) => {
 
   const requestedSearch = searchParams.get('query')
@@ -27,8 +28,7 @@ const Results = ({ searchParams }) => {
     fetch(geoapifyUrl)
       .then((res) => {
         if (res.status === 404) {
-          return setError(true)
-        }
+          return setError(true)}
         return res.json()
       })
       .then((data) => {
@@ -39,15 +39,22 @@ const Results = ({ searchParams }) => {
       //plug those into the URL
       let queryUrl = 'https://www.refugerestrooms.org/api/v1/restrooms/by_location?page=1&per_page=10&offset=0'
     
+        // if both filters are selected
         if (onlyUnisex && onlyADA === true) {
           queryUrl = `${queryUrl}&ada=true&unisex=true&lat=${lat}&lng=${lng}`
           // console.log('filter both')
+
+        // if only the gender neutral filter is selected
         } else if (onlyUnisex === true){
           queryUrl = `${queryUrl}&unisex=true&lat=${lat}&lng=${lng}`
           // console.log('filter only unisex')
+
+        // if only the accessible filter is selected  
         } else if (onlyADA === true) {
           queryUrl = `${queryUrl}&ada=true&lat=${lat}&lng=${lng}`
           // console.log('filter only ADA')
+
+          // if only neither filters are selected
         } else if (!onlyUnisex && !onlyADA ) {
           queryUrl = `${queryUrl}&lat=${lat}&lng=${lng}`
           // console.log('filter neither')
@@ -58,8 +65,7 @@ const Results = ({ searchParams }) => {
         fetch(queryUrl)
         .then((res) => {
           if (res.status === 404) {
-            return setError(true)
-          }
+            return setError(true) }
           return res.json()
         })
         .then((data) => {
@@ -70,19 +76,15 @@ const Results = ({ searchParams }) => {
         .catch((err) => {
           console.log(err)
         })
-
-
       })
       .catch((err) => {
         console.log(err)
       })
 }, [requestedSearch, onlyADA, onlyUnisex])
 
-if (!results) {
-  return (
-    <Loading />
-  )
-}
+  if (!results) {
+    return ( <Loading /> )
+  }
 
   if (error) {
     return (
@@ -93,18 +95,25 @@ if (!results) {
     )
   }
 
+  // sort results by distance
   results.sort(function(a, b) {
-    return a.distance - b.distance
+    return a.distance - b.distance 
   })
 
   return ( 
   <div className='resultsPage'>
     <br></br>
-    <p className='h3'>Showing results for: {requestedSearch}</p>
+
+    <p className='h3'>
+      Showing results for: {requestedSearch}
+    </p>
+    
     <div className='resultsContainer'>
+
       {results.map((element) => (
         <ResultsCard element={element}/>
       ))}
+
     </div>
   </div>
   )   
