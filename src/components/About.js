@@ -46,7 +46,7 @@ function About() {
           href='https://www.geoapify.com/geocoding-api'
           rel='noreferrer'
           target='_blank'>
-          Geoapify's Geocoding apiKey 
+          Geoapify's Geocoding API 
         </a></span> 
     
         . 
