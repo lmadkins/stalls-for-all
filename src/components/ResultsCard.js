@@ -3,25 +3,26 @@ import Card from 'react-bootstrap/Card';
 
 
 const ResultsCard = ({ element }) =>(
+  
   <Card
     key={element.name} 
     className='resultCard'>
-    
+
+    <Card.Title>
+      {element.name}
+    </Card.Title> 
+
     <span>
-      {Math.round((element.distance) * 100) / 100} miles away
-      <a 
-        href={`https://www.google.it/maps/q=${element.latitude},${element.longitude}`}
+    {Math.round((element.distance) * 100) / 100} miles away
+    <a 
+        href={`https://www.google.com/maps/dir/?api=1&origin=&destination=${element.latitude}%2C${element.longitude}`}
         rel='noreferrer'
         target='_blank'>
         Get Directions
       </a> 
     </span>
-    <br></br>
-
-    <Card.Title>{element.name}</Card.Title> 
-
-    <h6>{element.street} </h6>  
-
+    <br/>
+    {element.street}  
     <span>
       {element.accessible === true && 
         <span 
@@ -40,7 +41,6 @@ const ResultsCard = ({ element }) =>(
         className='badge changingTableBadge'>
         Changing Tables
       </span>} 
-      
     </span>
   </Card>
 ); 

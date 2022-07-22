@@ -15,12 +15,12 @@
 - Uses accesibility practices, gender-inclusive language
 
 ### Stretch Goals
-- autocomplete API to get geocoding to be as precise as possible
-- (or IP locator)
+- Include IP locator option and allow users to choose between automaticlly locating them, or manually entering
 - Filter results by ADA/Gender Neutral/Changing tables true/false
 - More results by also importing restroom locations from Googles place search for 'toilet' (or other optimal search queries, TBD with research)
-- Get information from Google Maps Places API about whether the place is open or not 
+- More details about locaiton from APIs e.g. if any age restrictions or access details are available, accessibility, etc.
+- View whether the place is open or not and the hours
+- Filter results for only open places
 - If there's been a publicly shared code for it, I'd like that to be listed
 - Feature for user to manually submit a toilet location
 - Feature for users to post a note to a location, e.g. "closed for construction", "always out of toilet paper"
-https://developers.google.com/maps/documentation/distance-matrix

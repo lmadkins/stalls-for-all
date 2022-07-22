@@ -8,7 +8,7 @@ function Loading() {
     <>
       <div className='loading'>
 
-      <h1 class='display-6'>
+      <h1 className='display-6'>
         Loading...
       </h1>
 

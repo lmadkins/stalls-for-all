@@ -7,7 +7,7 @@ const Search = () => {
     <div className='searchContainer'>
     {/* <img 
       src={inclusiveSign} alt='sign'/> */}
-      <h1 class='display-6'>Enter your location</h1>
+      <h1 className='display-6'>Enter your location</h1>
       <SearchForm />
     </div>
   );

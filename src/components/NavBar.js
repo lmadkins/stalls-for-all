@@ -15,7 +15,7 @@ function NavBar(props) {
       sticky='top'>
       <Container>
         <Navbar.Brand href='/'>
-          <h1 class='display-6'>
+          <h1 className='display-6'>
             Stalls for All</h1>
         </Navbar.Brand>
         <Navbar.Collapse
@@ -23,14 +23,14 @@ function NavBar(props) {
           <Nav.Link 
             aria-label='About'
             href='/about'>
-            <p class='h5'>
+            <p className='h5'>
               About
             </p>
           </Nav.Link>
           <Nav.Link 
             aria-label='Submit New Location'
             href='https://www.refugerestrooms.org/restrooms/new'> 
-              <p class='h5'>
+              <p className='h5'>
                 Submit
               </p>
           </Nav.Link>

@@ -18,7 +18,7 @@ function About() {
       <p className='h6'>
         The database of locations comes from
       
-        <span><a 
+        <span> <a 
         aria-label='Link to Refuge Restroom Website'
           href='https://www.refugerestrooms.org/'
           rel='noreferrer'
@@ -28,49 +28,50 @@ function About() {
 
         , and utilizes their   
         
-        <span><a 
+        <span> <a 
           aria-label='Link to Refuge Restroom API Website'
           href='https://www.refugerestrooms.org/api/docs/'
           rel='noreferrer'
           target='_blank'
           >
-          API. 
+          API 
         </a></span>
-
+        .
         <br></br>
 
         For retrieving location and distance information, it utilizes 
 
-        <span><a 
+        <span> <a 
           aria-label='Link to Geoapify API Website'
           href='https://www.geoapify.com/geocoding-api'
           rel='noreferrer'
           target='_blank'>
-          Geoapify's Geocoding API. 
+          Geoapify's Geocoding apiKey 
         </a></span> 
-
+    
+        . 
       <br></br>
 
       Site made using 
 
-      <span><a 
+      <span> <a 
         aria-label='Link to React Website'
         href='https://reactjs.org/'
         rel='noreferrer'
         target='_blank'>
         React
-      </a></span> 
+      </a> </span> 
 
       and 
 
-      <span><a 
+      <span> <a 
         aria-label='Link to React Bootstrap Website'
         href='https://react-bootstrap.netlify.app/'
         rel='noreferrer'
         target='_blank'>
-        React Bootstrap. 
+        React Bootstrap 
       </a></span> 
-
+      .
       </p>
     </div>
   );
