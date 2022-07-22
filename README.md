@@ -5,13 +5,11 @@ Enter your location and look up public restroom options near you, sorted by near
 
 
 ## Instructions:
----
 To view the deployed site hosted on Netlify, click [here](https://stalls-for-all.netlify.app/)
 
 ### To view locally:
 - Fork and clone this repository
 - Open in your code editor
 
----
 ## Technologies Used:
 Being built with React, using [Geoapify Geocoding API](https://www.geoapify.com/geocoding-api ) and [Refuge Restrooms API](https://www.refugerestrooms.org/)
