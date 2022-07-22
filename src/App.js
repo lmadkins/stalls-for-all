@@ -18,16 +18,6 @@ function App() {
     <div className="App">
     
       <NavBar />
-      <Routes>
-        {/* <Route
-          path='/'
-          element={<NavBar setSearchParams={setSearchParams}/>}
-          /> */}
-          {/* <Route
-          path='/about'
-          element={<About setSearchParams={setSearchParams}/>}
-          /> */}
-      </Routes>
       <FilterContext.Provider 
         value={{onlyUnisex, setOnlyUnisex, onlyADA, setOnlyADA}}>
       <main>

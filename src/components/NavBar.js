@@ -5,34 +5,39 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import About from './About';
 
+
 function NavBar(props) {
   return (
   <>
     <Navbar 
-    bg="light"
-    sticky="top"
-    className='nav'>
-        <Container>
-          <Navbar.Brand href="/">Stalls for All</Navbar.Brand>
-          <Navbar.Collapse className="justify-content-end">
+      bg='light'
+      className='nav'
+      sticky='top'>
+      <Container>
+        <Navbar.Brand href='/'>
+          <h1 className='display-6'>
+            Stalls for All</h1>
+        </Navbar.Brand>
+        <Navbar.Collapse
+          className='justify-content-end'>
           <Nav.Link 
-            href="/about"
-            aria-label="About">
-            {/* <Link to="/">About</Link> */}
-            About
+            aria-label='About'
+            href='/about'>
+            <p className='h5'>
+              About
+            </p>
           </Nav.Link>
           <Nav.Link 
-          href="https://www.refugerestrooms.org/restrooms/new"
-          aria-label="Submit New Location">
-            Submit 
+            aria-label='Submit New Location'
+            href='https://www.refugerestrooms.org/restrooms/new'> 
+              <p className='h5'>
+                Submit
+              </p>
           </Nav.Link>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
-      {/* <Routes>
-            <Route path= "./About" element={<About />}/>
-          </Routes> */}
-    </>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
+  </>
   );
 }
 

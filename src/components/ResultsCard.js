@@ -1,43 +1,58 @@
 import React from 'react';
-import { useState } from 'react';
-// import Badge from 'react-bootstrap/Badge';
+import Card from 'react-bootstrap/Card';
+
 
 const ResultsCard = ({ element }) =>(
-  <div
+  
+  <Card
     key={element.name} 
     className='resultCard'>
-
     <span>
-      <p> {Math.round((element.distance) * 100) / 100} miles away</p>
-    <a 
-      href={`https://www.google.com/maps/@${element.latitude},${element.longitude}14z`}
-      target='_blank'
-      rel="noreferrer">
-      Get Directions
-    </a> 
-    </span>
-    <br></br>
-    <h5>{element.name}</h5>
-    <h6>{element.street} </h6>  
-
-    {element.accessible === true && 
-      <span className='badge accessibleBadge'>
-        ADA Accessible
-      </span>}
-      
+     {Math.round((element.distance) * 100) / 100} miles away
+      <a 
+        href={`https://www.google.com/maps/dir/?api=1&origin=&destination=${element.latitude}%2C${element.longitude}`}
+        rel='noreferrer'
+        target='_blank'>
+        Get Directions
+      </a>
+      </span>
+    <Card.Title>
+      {element.name}
+    </Card.Title> 
+    {element.street}  
+    
+    <span>
+      {element.accessible === true && 
+        <span 
+          className='badge accessibleBadge'>
+          ADA Accessible
+        </span>}
+        
     {element.unisex === true && 
-      <span className='badge unisexBadge'>
+      <span 
+        className='badge unisexBadge'>
         Gender Neutral
-      </span>}  
-
+      </span>} 
+    
     {element.changing_table === true && 
-      <span className='badge changingTableBadge'>
+      <span 
+        className='badge changingTableBadge'>
         Changing Tables
       </span>} 
-  
-    
-  </div>
 
+    {!element.accessible &&
+      <span 
+      className='badge notBadge'>
+      Not ADA Accessible
+    </span>}  
+
+    {!element.unisex &&
+      <span 
+      className='badge notBadge'>
+      Not Gender Neutral
+    </span>}  
+    </span>
+  </Card>
 ); 
 
 export default ResultsCard;

@@ -1,5 +1,168 @@
-get place Info
+ https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=-33.8670522,151.1957362&radius=1500&type=restaurant&keyword=cruise&key=YOUR_API_KEY
 
+REACT_APP_GOOGLE_KEY=AIzaSyDiQgB6EVk_RigNW8YW4uxPWSXCKgd3A3w
+
+
+ const key2 = process.env.REACT_APP_GEOAPIFY_KEY2
+  const detailsUrl = `https://api.geoapify.com/v2/place-details?lat=${element.latitude}&lon={element.longitude}&features=building.places&apiKey=${key2}`
+
+  fetch(detailsUrl)
+  .then((res) => {
+    if (res.status === 404) {
+      return setError(true)
+    }
+    return res.json()
+  })
+  .then((data) => {
+    // returned data with that lat & long is added to results state
+    // console.log(data)
+    // console.log(data.features[0].properties.datasource.raw.opening_hours)
+    // console.log()
+    // setResults(data)  
+    // setIsLoading(false)
+    // console.log(data[0].id)
+  })
+  .catch((err) => {
+    console.log(err)
+  })
+  const urlLat = eachLat.forEach(function(a) {
+    return a.latitude
+  })
+   // let arrKey = 
+  // console.log(results[0].longitude)
+  // let eachLon = results.longitude
+
+  // const getLat = results[0].latitude
+  // console.log(getLat)
+  
+  // results.forEach(function getCoords(a) {
+  //   return a.latitude
+  // })
+  // const eachLat = results.latitude
+  // const eachLong = results.longitude
+
+
+ 
+  // const [eachLong, setEachLong] = useState()
+returned array of 10 objects
+access the value at results[i].latitude and results[i].longitude
+
+results.forEach(function getCoords(a, n)=  {
+ let eachLat = a.latitude 
+
+})
+  return results.a.latitude
+(...results)
+results.
+use variable to pull a value from an object's key
+const keyToLog = 'likesPickles'
+console.log(person[keyToLog]) //person.likesPickles
+
+const latitude = 
+results.
+get place Info
+const detailsUrl = `https://api.geoapify.com/v2/place-details?lat=45.51631561428553&lon=-122.61720697168224&apiKey=${key2}`
+
+https://api.geoapify.com/v2/place-details?lat=45.51230558248889&lon=-122.61781877318535&features=building.places&apiKey=d55c82cbf6894f01bd75ad568f8cbc94
+restrictions.access,restrictions.access_details,restrictions.min_age,wheelchair,toilets, opening_hours,
+opening_hours	string	Opening hours
+
+restrictions.min_age
+opening_hours	string	Opening hours
+restrictions.access
+	enum	Access type - "private", "customers", "permit", "designated", "permissive"
+
+restrictions.access_details
+	object	Access details
+
+toilets
+	boolean	If there are toilets
+
+changing_table	boolean
+
+wheelchair	boolean	If the place is sutable for wheelchairs
+
+building.places	Place feature []	Places of "commercial", "accommodation", "sport", "service", "rental", "healthcare", "childcare", "entertainment", "catering" categories located in the building found by the given place Id or coordinates
+
+building.commercial	Place feature []	Places of "commercial" category located in the building found by the given place Id or coordinates
+
+
+lat = results.[0].latitutde
+long = results.[0].long
+   const apiKey2 = process.env.REACT_APP_GEOAPIFY_KEY2
+/////////////////////////
+
+Google's 
+AIzaSyDiQgB6EVk_RigNW8YW4uxPWSXCKgd3A3w
+
+https://maps.googleapis.com/maps/api/place/findplacefromtext/json?fields=place_id%2Cname%2Copening_hours&
+&input=${results.[0].name}
+ &inputtype=textquery
+ &key=AIzaSyDiQgB6EVk_RigNW8YW4uxPWSXCKgd3A3w
+
+ const apiKey2 = process.env.REACT_APP_GOOGLE_KEY
+const url = `https://maps.googleapis.com/maps/api/place/findplacefromtext/json
+?fields=formatted_address%2Cname%2Crating%2Copening_hours%2Cgeometry
+&input=mongolian
+&inputtype=textquery
+&locationbias=circle%3A2000%4047.6918452%2C-122.2226413
+&key=${apiKey2}`
+  fetch(url, {
+    method: 'GET',
+    mode: "no-cors",
+  })
+  .then((res) => {
+    if (res.status === 404) {
+      return setError(true)
+    }
+    return res.json()
+  })
+  .then((data) => {
+
+    console.log(data)
+    // setResults(data)  
+    // setIsLoading(false)
+    // console.log(data[0].id)
+  })
+  .catch((err) => {
+    console.log(err)
+  })
+/////////////////////////
+if 
+      // { onlyUnisex && 
+      //   fetch(unisexFilterUrl) }
+
+      // {onlyADA &&
+      //   fetch(adaFilterUrl)}
+
+    // !onlyUnisex && !onlyADA &&
+      //   fetch(noFilterUrl)    
+      // onlyUnisex && 
+      //   fetch(unisexFilterUrl)
+
+      // onlyADA &&
+      //   fetch(adaFilterUrl)
+      
+     // fetch(onlyUnisex === true  && onlyADA === true &&
+      //   bothFilterUrl)
+      // fetch(onlyUnisex === true && !onlyADA && 
+      //   unisexFilterUrl)
+      // fetch(onlyADA === true && !onlyUnisex &&
+      //     adaFilterUrl)
+////////////////////////
+      if (onlyUnisex === true  && onlyADA === true) {
+        fetch(bothFilterUrl)
+      }
+    else if (onlyUnisex === true && !onlyADA) 
+        fetch(unisexFilterUrl)
+
+      else if (onlyADA === true && !onlyUnisex) {
+        fetch(adaFilterUrl)
+      }
+      else {
+        fetch(noFilterUrl)
+      }
+ ////////////////////////     
 
 Auto search form
 
