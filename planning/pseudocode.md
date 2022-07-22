@@ -6,6 +6,44 @@ lat = results.[0].latitutde
 long = results.[0].long
 GEOAPIFYKEY2
 
+
+/////////////////////////
+if 
+      // { onlyUnisex && 
+      //   fetch(unisexFilterUrl) }
+
+      // {onlyADA &&
+      //   fetch(adaFilterUrl)}
+
+    // !onlyUnisex && !onlyADA &&
+      //   fetch(noFilterUrl)    
+      // onlyUnisex && 
+      //   fetch(unisexFilterUrl)
+
+      // onlyADA &&
+      //   fetch(adaFilterUrl)
+      
+     // fetch(onlyUnisex === true  && onlyADA === true &&
+      //   bothFilterUrl)
+      // fetch(onlyUnisex === true && !onlyADA && 
+      //   unisexFilterUrl)
+      // fetch(onlyADA === true && !onlyUnisex &&
+      //     adaFilterUrl)
+////////////////////////
+      if (onlyUnisex === true  && onlyADA === true) {
+        fetch(bothFilterUrl)
+      }
+    else if (onlyUnisex === true && !onlyADA) 
+        fetch(unisexFilterUrl)
+
+      else if (onlyADA === true && !onlyUnisex) {
+        fetch(adaFilterUrl)
+      }
+      else {
+        fetch(noFilterUrl)
+      }
+ ////////////////////////     
+
 Auto search form
 
 Click search to show locations near you

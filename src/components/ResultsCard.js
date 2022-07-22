@@ -10,7 +10,7 @@ const ResultsCard = ({ element }) =>(
     <span>
       {Math.round((element.distance) * 100) / 100} miles away
       <a 
-        href={`https://www.google.com/maps/@${element.latitude},${element.longitude}14z`}
+        href={`https://www.google.it/maps/q=${element.latitude},${element.longitude}`}
         rel='noreferrer'
         target='_blank'>
         Get Directions

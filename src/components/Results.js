@@ -21,7 +21,7 @@ const Results = ({ searchParams }) => {
 
 
   useEffect(() => {
-    
+
     const apiKey1 = process.env.REACT_APP_GEOAPIFY_KEY
     // search input (requestedSearch) goes to geocoder 
     const geoapifyUrl = `https://api.geoapify.com/v1/geocode/search?text=${requestedSearch}&format=json&apiKey=${apiKey1}`
@@ -41,47 +41,26 @@ const Results = ({ searchParams }) => {
           // console.log(data)
         // plug those into the url
     
-     
-      const refugeBaseUrl = `https://www.refugerestrooms.org/api/v1/restrooms/by_location?page=1&per_page=10&offset=0&`
 
-      const noFilterUrl = `${refugeBaseUrl}&lat=${lat}&lng=${lng}`
-
-      const adaFilterUrl = `${refugeBaseUrl}ada=true&lat=${lat}&lng=${lng}`
-
-      const unisexFilterUrl = `${refugeBaseUrl}unisex=true&lat=${lat}&lng=${lng}`
-      // const unisexFilterUrl = refugeBaseUrl + 'unisex=true&lat=' + lat + '&lng=' + lng
-      const bothFilterUrl = `${refugeBaseUrl}ada=true&unisex=true&lat=${lat}&lng=${lng}`
+      let queryUrl = 'https://www.refugerestrooms.org/api/v1/restrooms/by_location?page=1&per_page=10&offset=0'
+    
+        if (onlyUnisex && onlyADA === true) {
+          queryUrl = `${queryUrl}&ada=true&unisex=true&lat=${lat}&lng=${lng}`
+          console.log('filter both')
+        } else if (onlyUnisex === true){
+          queryUrl = `${queryUrl}&unisex=true&lat=${lat}&lng=${lng}`
+          console.log('filter only unisex')
+        } else if (onlyADA === true) {
+          queryUrl = `${queryUrl}&ada=true&lat=${lat}&lng=${lng}`
+          console.log('filter only ADA')
+        } else if (!onlyUnisex && !onlyADA ) {
+          queryUrl = `${queryUrl}&lat=${lat}&lng=${lng}`
+          console.log('filter neither')
+        } else {
+          console.log('error')
+        }
       
-
-      // !onlyUnisex && !onlyADA &&
-      //   fetch(noFilterUrl)    
-      // onlyUnisex && 
-      //   fetch(unisexFilterUrl)
-
-      // onlyADA &&
-      //   fetch(adaFilterUrl)
-      
-
-      // if (onlyUnisex && onlyADA === true)
-      //   // console.log('filter both')
-      //   fetch(bothFilterUrl)
-      // else if (onlyUnisex === true) 
-      //  fetch(unisexFilterUrl)
-      //   // console.log('filter only unisex')
-      // else if (onlyADA === true)
-      //   fetch(adaFilterUrl)
-      //   // console.log('filter only ADA')
-      // else if (!onlyUnisex && !onlyADA ) 
-      //   fetch(noFilterUrl)
-      //   console.log('filter neither')
-
-      // fetch(onlyUnisex === true  && onlyADA === true &&
-      //   bothFilterUrl)
-      // fetch(onlyUnisex === true && !onlyADA && 
-      //   unisexFilterUrl)
-      // fetch(onlyADA === true && !onlyUnisex &&
-      //     adaFilterUrl)
-        fetch(noFilterUrl)
+        fetch(queryUrl)
         .then((res) => {
           if (res.status === 404) {
             return setError(true)
