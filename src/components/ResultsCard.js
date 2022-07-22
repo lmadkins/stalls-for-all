@@ -7,22 +7,20 @@ const ResultsCard = ({ element }) =>(
   <Card
     key={element.name} 
     className='resultCard'>
-
-    <Card.Title>
-      {element.name}
-    </Card.Title> 
-
     <span>
-    {Math.round((element.distance) * 100) / 100} miles away
-    <a 
+     {Math.round((element.distance) * 100) / 100} miles away
+      <a 
         href={`https://www.google.com/maps/dir/?api=1&origin=&destination=${element.latitude}%2C${element.longitude}`}
         rel='noreferrer'
         target='_blank'>
         Get Directions
-      </a> 
-    </span>
-    <br/>
+      </a>
+      </span>
+    <Card.Title>
+      {element.name}
+    </Card.Title> 
     {element.street}  
+    
     <span>
       {element.accessible === true && 
         <span 
@@ -41,6 +39,18 @@ const ResultsCard = ({ element }) =>(
         className='badge changingTableBadge'>
         Changing Tables
       </span>} 
+
+    {!element.accessible &&
+      <span 
+      className='badge notBadge'>
+      Not ADA Accessible
+    </span>}  
+
+    {!element.unisex &&
+      <span 
+      className='badge notBadge'>
+      Not Gender Neutral
+    </span>}  
     </span>
   </Card>
 ); 

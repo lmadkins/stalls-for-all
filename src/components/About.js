@@ -10,7 +10,7 @@ function About() {
       src={inclusiveSign}/>
       
       <p className='h5'>
-        This app is inspired by the principle that everyone has the right to safe and easy access to a restroom that meets their needs, was designed to help facilitate this.
+        This app is inspired by the principle that everyone has the right to safe and easy access to a restroom that meets their needs.
       </p>
       
       <br></br>

@@ -32,7 +32,6 @@ const Results = ({ searchParams }) => {
         return res.json()
       })
       .then((data) => {
-        // console.log(data)
         // get latitude and longitude properties from the location the geocoder identified
         let lat = data.results[0].lat
         let lng = data.results[0].lon 
@@ -105,8 +104,7 @@ if (!results) {
     <div className='resultsContainer'>
       {results.map((element) => (
         <ResultsCard element={element}/>
-      ))
-      }
+      ))}
     </div>
   </div>
   )   
