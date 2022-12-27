@@ -15,6 +15,8 @@
 - Uses accesibility practices, gender-inclusive language
 
 ### Stretch Goals
+- Error handling
+
 - Include IP locator option and allow users to choose between automaticlly locating them, or manually entering
 - Filter results by ADA/Gender Neutral/Changing tables true/false
 - More results by also importing restroom locations from Googles place search for 'toilet' (or other optimal search queries, TBD with research)

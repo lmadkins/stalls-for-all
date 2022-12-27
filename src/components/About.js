@@ -1,10 +1,9 @@
 import React from 'react';
-import inclusiveSign from './inclusiveSign.png'
-
+import inclusiveSign from '../img/inclusive-sign.png'
 
 function About() {
   return (
-    <div className='aboutContainer'>
+    <div className='about-container'>
       <img 
       alt='Bathroom sign'
       src={inclusiveSign}/>
@@ -48,7 +47,6 @@ function About() {
           target='_blank'>
           Geoapify's Geocoding API 
         </a></span> 
-    
         . 
       <br></br>
 

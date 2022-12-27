@@ -1,11 +1,10 @@
 import React from 'react';
-import { useState } from 'react'
+// import { useState } from 'react'
 import Spinner from 'react-bootstrap/Spinner';
 
 
 function Loading() {
   return (
-    <>
       <div className='loading'>
 
       <h1 className='display-6'>
@@ -20,7 +19,6 @@ function Loading() {
       </Spinner>
 
     </div>
-    </>
   );
 }
 

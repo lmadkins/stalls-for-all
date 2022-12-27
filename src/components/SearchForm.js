@@ -40,14 +40,14 @@ const SearchForm = ({setSearchParams}) => {
   }
 
   return (
-    <div className='searchForm'>
+    <div className='search-form'>
 
       <Form onSubmit={handleSubmit}>
+        
         {/* Add tooltip or examples? */}
         <br />
-        <Form.Group as={Row} className='mb-3' 
-        >
-        <Col sm={10}>
+        <Form.Group as={Row} className='mb-3'>
+          <Col sm={10}>
             <Form.Control 
               aria-required='true'
               required 

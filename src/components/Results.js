@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { FilterContext } from './FilterContext';
 import Loading from './Loading';
 import ResultsCard from './ResultsCard';
+import ResultDetails from './ResultDetails';
 
 const Results = ({ searchParams }) => {
 
@@ -16,6 +17,7 @@ const Results = ({ searchParams }) => {
   // create new state
   const [results, setResults] = useState('')
   const [error, setError] = useState(false)
+  const [placeDetails, setPlaceDetails] = useState()
 
   useEffect(() => {
     
@@ -52,7 +54,7 @@ const Results = ({ searchParams }) => {
           queryUrl = `${queryUrl}&lat=${lat}&lng=${lng}`
           // console.log('filter neither')
         } else {
-          console.log('error')
+          // console.log('error')
         }
         // fetch based on whichever filters
         fetch(queryUrl)
@@ -65,16 +67,17 @@ const Results = ({ searchParams }) => {
         .then((data) => {
           // returned data with that lat & long is added to results state
           setResults(data)
-          // console.log(data)
+          setPlaceDetails(data)
+          // console.log(results)
         })
         .catch((err) => {
-          console.log(err)
+          // console.log(err)
         })
 
 
       })
       .catch((err) => {
-        console.log(err)
+        // console.log(err)
       })
 }, [requestedSearch, onlyADA, onlyUnisex])
 
@@ -96,14 +99,29 @@ if (!results) {
   results.sort(function(a, b) {
     return a.distance - b.distance
   })
+  // console.log(results[0].latitutde)
+
+  // placeDetails.sort(function(a, b) {
+  //   return a.distance - b.distance
+  // })
+  // let elementLats = []
 
   return ( 
-  <div className='resultsPage'>
+  <div className='results-page'>
     <br></br>
     <p className='h3'>Showing results for: {requestedSearch}</p>
-    <div className='resultsContainer'>
+
+    <div className='results-container'>
+
+    {/* {placeDetails.map((element) => (
+    console.log(element.name, element.latitude, element.longitude)
+    <ResultDetails element={element}/>
+  ))} */}
+  
       {results.map((element) => (
+        
         <ResultsCard element={element}/>
+        
       ))}
     </div>
   </div>
